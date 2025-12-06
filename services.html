@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Bank — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+
+    <div class="header-left">
+  <img id="site-logo" src="assets/images/logo3.webp" alt="Bank Logo">
+</div>
+
+<!-- CENTER: Navigation (desktop) -->
+<nav class="header-nav" aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="home-menu">
+        <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+        <span class="home-arrow"> ▾</span>
+      </button>
+
+      <ul id="home-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="home1.html">Home 2</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="pages-menu">Pages ▾</button>
+      <ul id="pages-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+        <li role="none"><a role="menuitem" href="services.html">Services</a></li>
+        <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+        <li role="none"><a role="menuitem" href="blogs.html">Blogs</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item"><a class="nav-link" href="personal.html">Personal Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="business.html">Business Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+  </ul>
+</nav>
+
+<!-- RIGHT: Login button (desktop) + Hamburger (mobile) -->
+<div class="header-right">
+  <!-- Desktop login button: visible on desktop, hidden on small screens -->
+<a href="login.html">
+  <button id="login-btn" class="btn login-btn" aria-label="Login (desktop)">Login</button>
+</a>
+
+
+  <!-- Hamburger (corner right on mobile) -->
+  <button id="hamburger" class="hamburger" aria-label="Open menu"
+          aria-controls="mobile-menu" aria-expanded="false" aria-pressed="false">
+    <span class="hamburger-inner" aria-hidden="true">
+      <svg width="22" height="14" viewBox="0 0 22 14" xmlns="http://www.w3.org/2000/svg">
+        <rect class="h1" y="0" width="22" height="2" rx="1"></rect>
+        <rect class="h2" y="6" width="22" height="2" rx="1"></rect>
+        <rect class="h3" y="12" width="22" height="2" rx="1"></rect>
+      </svg>
+    </span>
+  </button>
+</div>
+
+</div>
+</header>
+
+<!-- MOBILE MENU (centered overlay) -->
+<div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="mobile-menu-inner" role="document" aria-labelledby="mobile-menu-title">
+    <div class="mobile-menu-header">
+      <div class="mobile-logo-wrap">
+        <img id="mobile-logo" alt="Bank Logo">
+      </div>
+      <button id="mobile-close" class="btn icon-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 3 L17 17 M17 3 L3 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- NAVIGATION (mobile) -->
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <ul class="mobile-nav-list">
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="home">
+            <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+            <span class="home-arrow"> ▾</span>
+          </button>
+
+          <ul class="mobile-submenu" data-mobile-menu="home">
+            <li><a href="home1.html">Home 2</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="pages">Pages ▾</button>
+          <ul class="mobile-submenu" data-mobile-menu="pages">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item"><a class="mobile-link" href="personal.html">Personal Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="business.html">Business Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="contact.html">Contact</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="dashboard.html">Dashboard</a></li>
+
+        <!-- MOBILE: Login button placed inside hamburger menu -->
+        <li class="mobile-item mobile-login-item">
+  <a href="login.html">
+    <button id="mobile-login-btn" class="btn mobile-login-btn">Login</button>
+  </a>
+</li>
+
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+
+
+
+<!-- ============================
+     SERVICES PAGE (NO HEADER/FOOTER)
+     Unique class names: svcPage*
+     Paste this HTML, then include the CSS and JS below on the same page.
+============================ -->
+
+<main class="svcPageRoot" aria-labelledby="svcPageTitle">
+
+  <!-- HERO -->
+  <section class="svcHero" aria-label="Services hero">
+    <div class="svcHero-inner">
+      <h1 id="svcPageTitle" class="svcHero-title">Our Services</h1>
+      <p class="svcHero-sub">
+        Secure, modern banking services built for individuals and businesses — explore what we do and how we help.
+      </p>
+      <div class="svcHero-ctas">
+        <a href="404page.html" class="svcHero-ctaPrimary">Open an Account</a>
+        <a href="404page.html" class="svcHero-ctaGhost">Talk to an Advisor</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="svcGridSection" aria-label="Core services">
+    <div class="svcGrid-inner">
+
+      <h2 class="svcGrid-title">Core services</h2>
+      <p class="svcGrid-sub">Everything from everyday banking to bespoke business solutions.</p>
+
+      <div class="svcGrid-cards" id="svcCards">
+        <!-- Card 1 -->
+        <article class="svcCard" data-svc="accounts" tabindex="0" aria-labelledby="svc1Title">
+          <div class="svcCard-iconWrap" aria-hidden="true">
+            <!-- SVG icon with stroke for hover animation -->
+            <svg class="svcIcon" viewBox="0 0 64 64" width="68" height="68" fill="none" role="img">
+              <rect x="6" y="14" width="52" height="36" rx="4" stroke="currentColor" stroke-width="2" />
+              <circle cx="20" cy="28" r="3" fill="currentColor" />
+              <path d="M34 32h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <h3 id="svc1Title" class="svcCard-title">Accounts & Deposits</h3>
+          <p class="svcCard-desc">Savings, current and fixed deposits with competitive rates and intuitive digital management.</p>
+
+          <a class="svcCard-more"
+   href="404page.html"
+   role="button"
+   aria-expanded="false"
+   aria-controls="svcPanel1">
+   Learn more
+</a>
+
+
+          <div id="svcPanel1" class="svcPanel" aria-hidden="true">
+            <p>
+              Open personal or business accounts with minimal documentation. Auto-sweep FDs, e-statements, and multi-user access for businesses.
+            </p>
+            <ul>
+              <li>Zero-cost basic savings</li>
+              <li>Senior & youth account variants</li>
+              <li>Automatic sweep for higher returns</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="svcCard" data-svc="payments" tabindex="0" aria-labelledby="svc2Title">
+          <div class="svcCard-iconWrap" aria-hidden="true">
+            <svg class="svcIcon" viewBox="0 0 64 64" width="68" height="68" fill="none" role="img">
+              <rect x="8" y="18" width="48" height="28" rx="3" stroke="currentColor" stroke-width="2" />
+              <path d="M18 30h28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="46" cy="38" r="3" fill="currentColor" />
+            </svg>
+          </div>
+
+          <h3 id="svc2Title" class="svcCard-title">Payments & Transfers</h3>
+          <p class="svcCard-desc">Instant UPI, IMPS, NEFT/RTGS, recurring payments and scheduled transfers — fast & reliable.</p>
+
+     <a class="svcCard-more"
+   href="404page.html"
+   role="button"
+   aria-expanded="false"
+   aria-controls="svcPanel1">
+   Learn more
+</a>
+
+
+          <div id="svcPanel2" class="svcPanel" aria-hidden="true">
+            <p>
+              Send money instantly with end-to-end notifications. Schedule salary payments, bulk payouts, and set recurring bill payments.
+            </p>
+            <ul>
+              <li>Real-time payments & confirmations</li>
+              <li>Bulk payroll tools for businesses</li>
+              <li>Auto-bill pay & reminders</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="svcCard" data-svc="loans" tabindex="0" aria-labelledby="svc3Title">
+          <div class="svcCard-iconWrap" aria-hidden="true">
+            <svg class="svcIcon" viewBox="0 0 64 64" width="68" height="68" fill="none" role="img">
+              <path d="M10 46V28a6 6 0 0 1 6-6h32a6 6 0 0 1 6 6v18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M20 22v-6a6 6 0 0 1 6-6h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="44" cy="34" r="4" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+
+          <h3 id="svc3Title" class="svcCard-title">Loans & Credit</h3>
+          <p class="svcCard-desc">Personal, home, auto and business loans — competitive rates, fast approval, flexible EMIs.</p>
+<a class="svcCard-more"
+   href="404page.html"
+   role="button"
+   aria-expanded="false"
+   aria-controls="svcPanel1">
+   Learn more
+</a>
+
+
+          <div id="svcPanel3" class="svcPanel" aria-hidden="true">
+            <p>
+              Simple online application, pre-qualification check, and clear breakdown of EMIs and fees. Flexible prepayment options.
+            </p>
+            <ul>
+              <li>Quick pre-qualification</li>
+              <li>Transparent fee structure</li>
+              <li>Top-up loan options</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="svcCard" data-svc="wealth" tabindex="0" aria-labelledby="svc4Title">
+          <div class="svcCard-iconWrap" aria-hidden="true">
+            <svg class="svcIcon" viewBox="0 0 64 64" width="68" height="68" fill="none" role="img">
+              <path d="M8 44h48" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M20 36c6-8 18-8 24 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="32" cy="24" r="6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+
+          <h3 id="svc4Title" class="svcCard-title">Wealth & Investments</h3>
+          <p class="svcCard-desc">Mutual funds, FDs, recurring investments, and advisory services to reach your goals.</p>
+
+  <a class="svcCard-more"
+   href="404page.html"
+   role="button"
+   aria-expanded="false"
+   aria-controls="svcPanel1">
+   Learn more
+</a>
+
+
+          <div id="svcPanel4" class="svcPanel" aria-hidden="true">
+            <p>
+              Invest in curated mutual fund portfolios, set SIPs, or choose goal-based plans with risk profiles and advisor help.
+            </p>
+            <ul>
+              <li>Managed portfolios</li>
+              <li>Goal-based SIPs</li>
+              <li>Transparent performance tracking</li>
+            </ul>
+          </div>
+        </article>
+
+      </div> <!-- end cards -->
+    </div>
+  </section>
+
+  <!-- TRUST COUNTERS -->
+  <section class="svcTrustSection" aria-label="Trust numbers">
+    <div class="svcTrust-inner">
+      <div class="svcStat">
+        <div class="svcStat-number" data-target="1200000">0</div>
+        <div class="svcStat-label">Customers</div>
+      </div>
+
+      <div class="svcStat">
+        <div class="svcStat-number" data-target="24">0</div>
+        <div class="svcStat-label">/7 Support</div>
+      </div>
+
+      <div class="svcStat">
+        <div class="svcStat-number" data-target="99.99">0</div>
+        <div class="svcStat-label">% Uptime</div>
+      </div>
+
+      <div class="svcStat">
+        <div class="svcStat-number" data-target="256">0</div>
+        <div class="svcStat-label">Bit Encryption</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="svcFinalCTA" aria-label="Services CTA">
+    <div class="svcFinalCTA-inner">
+      <h3 class="svcFinalCTA-title">Ready to get started?</h3>
+      <p class="svcFinalCTA-text">Open an account, apply for a loan, or speak to an advisor — we'll help you choose.</p>
+      <div class="svcFinalCTA-btns">
+        <a href="404page.html" class="svcFinalCTA-primary">Open Account</a>
+        <a href="404page.html" class="svcFinalCTA-secondary">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+
+
+<section class="tbTestimonialsSection" aria-label="Customer testimonials">
+  <div class="tbTestimonialsInner">
+
+    <h2 class="tbTitle">What our customers say</h2>
+    <p class="tbSubtitle">Real stories from customers using our banking services.</p>
+
+    <div class="tbCarousel" data-autoplay="true" data-interval="5000" aria-roledescription="carousel">
+      <div class="tbSlides" role="list">
+
+        <!-- Slide 1 -->
+        <article class="tbSlide" role="listitem" aria-hidden="false" data-index="0">
+          <div class="tbQuote">“Opening an account was fast and the support team helped me every step of the way. App is super smooth.”</div>
+          <div class="tbAuthor">
+            <img class="tbAvatar" src="assets/images/testimonails.webp" alt="Anita Rao">
+            <div class="tbMeta">
+              <div class="tbName">Anita Rao</div>
+              <div class="tbRole">Small Business Owner</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 2 -->
+        <article class="tbSlide" role="listitem" aria-hidden="true" data-index="1">
+          <div class="tbQuote">“Their loan application was transparent and we got the approval within 48 hours — very impressed.”</div>
+          <div class="tbAuthor">
+            <img class="tbAvatar" src="assets/images/testiminals2.webp" alt="Rahul Singh">
+            <div class="tbMeta">
+              <div class="tbName">Rahul Singh</div>
+              <div class="tbRole">Software Engineer</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 3 -->
+        <article class="tbSlide" role="listitem" aria-hidden="true" data-index="2">
+          <div class="tbQuote">“Great rates on fixed deposits and the dashboard shows everything I need at a glance.”</div>
+          <div class="tbAuthor">
+            <img class="tbAvatar" src="assets/images/testimonails3.webp" alt="Meera Patel">
+            <div class="tbMeta">
+              <div class="tbName">Meera Patel</div>
+              <div class="tbRole">Teacher</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Controls -->
+      <button class="tbPrevBtn" aria-label="Previous testimonial" title="Previous">‹</button>
+      <button class="tbNextBtn" aria-label="Next testimonial" title="Next">›</button>
+
+      <!-- Indicators -->
+      <div class="tbDots" role="tablist" aria-label="Testimonials navigation">
+        <button class="tbDot is-active" role="tab" aria-selected="true" aria-controls="slide-0" data-target="0" title="Show testimonial 1"></button>
+        <button class="tbDot" role="tab" aria-selected="false" aria-controls="slide-1" data-target="1" title="Show testimonial 2"></button>
+        <button class="tbDot" role="tab" aria-selected="false" aria-controls="slide-2" data-target="2" title="Show testimonial 3"></button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<section class="faqBankSection" aria-label="Frequently Asked Questions">
+  <div class="faqBankContainer">
+
+    <h2 class="faqBankTitle">Frequently Asked Questions</h2>
+    <p class="faqBankSubtitle">Quick answers to the most common questions customers ask.</p>
+
+    <div class="faqItems" id="faqList">
+
+      <!-- FAQ 1 -->
+      <div class="faqItem">
+        <button class="faqQuestion" aria-expanded="false" aria-controls="faq1">
+          <span>How do I open a new bank account online?</span>
+          <span class="faqArrow">›</span>
+        </button>
+        <div id="faq1" class="faqAnswer" aria-hidden="true">
+          <p>You can open it in minutes using your PAN, Aadhaar, mobile number and a quick online verification process.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faqItem">
+        <button class="faqQuestion" aria-expanded="false" aria-controls="faq2">
+          <span>Is online banking secure?</span>
+          <span class="faqArrow">›</span>
+        </button>
+        <div id="faq2" class="faqAnswer" aria-hidden="true">
+          <p>Yes — your account is protected with 256-bit encryption, biometric login, realtime fraud monitoring and OTP verification.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faqItem">
+        <button class="faqQuestion" aria-expanded="false" aria-controls="faq3">
+          <span>How fast will my loan be approved?</span>
+          <span class="faqArrow">›</span>
+        </button>
+        <div id="faq3" class="faqAnswer" aria-hidden="true">
+          <p>Most personal loans are approved within 24–48 hours when documents are verified successfully.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faqItem">
+        <button class="faqQuestion" aria-expanded="false" aria-controls="faq4">
+          <span>Do you charge for fund transfers?</span>
+          <span class="faqArrow">›</span>
+        </button>
+        <div id="faq4" class="faqAnswer" aria-hidden="true">
+          <p>UPI and IMPS transfers are free. NEFT/RTGS charges follow RBI guidelines but are often zero for digital accounts.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faqItem">
+        <button class="faqQuestion" aria-expanded="false" aria-controls="faq5">
+          <span>How can I contact customer care?</span>
+          <span class="faqArrow">›</span>
+        </button>
+        <div id="faq5" class="faqAnswer" aria-hidden="true">
+          <p>You can reach us 24/7 through live chat, phone support, email and the in-app help center.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+  <!-- FOOTER -->
+ <footer class="bank-footer">
+  <div class="bank-footer-inner container">
+
+    <!-- Column 1: Brand & short about -->
+    <div class="footer-col footer-brand">
+      <div class="brand-row">
+        <img src="assets/images/logo3.webp" alt="Bank logo" class="footer-logo">
+        <h3 class="brand-title">Your Bank</h3>
+      </div>
+      <p class="brand-desc">
+        Secure banking built for people and businesses — modern tools, 24/7 protection,
+        and expert support to keep your money moving safely.
+      </p>
+      <a class="btn footer-cta" href="404page.html">Open an Account</a>
+    </div>
+
+    <!-- Column 2: Quick links -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Quick Links</h4>
+      <ul class="footer-links-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Products/Services -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Products</h4>
+      <ul class="footer-links-list">
+        <li><a href="404page.html">Savings Account</a></li>
+        <li><a href="404page.html">Personal Loans</a></li>
+        <li><a href="404page.html">Credit Cards</a></li>
+        <li><a href="404page.html">Business Banking</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Contact -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Contact</h4>
+      <address class="contact-info">
+        <div>Plot No 42, Sector 7,<br/> Financial District, City</div>
+        <div class="contact-row">📞 <a href="tel:+919876543210">+91 98765 43210</a></div>
+        <div class="contact-row">✉️ <a href="mailto:help@yourbank.example">help@yourbank.example</a></div>
+        <div class="contact-row">⏰ Mon–Fri: 09:00 — 18:00</div>
+      </address>
+    </div>
+
+    <!-- Column 5: Social / small note -->
+    <div class="footer-col footer-social">
+      <h4 class="footer-heading">Follow Us</h4>
+      <p class="social-desc">Stay updated — security tips, product updates and offers.</p>
+      <div class="social-row">
+        <a class="social-btn" href="404page.html" aria-label="Twitter">X</a>
+        <a class="social-btn" href="404page.html" aria-label="LinkedIn">in</a>
+        <a class="social-btn" href="404page.html" aria-label="Github">GH</a>
+        <a class="social-btn" href="404page.html" aria-label="Instagram">IG</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bank-footer-bottom">
+    <div class="container small">
+      <div>© <span id="footer-year"></span> Your Bank. All rights reserved.</div>
+      <div class="legal-links">
+        <a href="404page.html">Privacy</a>
+        <a href="404page.html">Terms</a>
+        <a href="404page.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="app.js" defer></script>
+</body>
+</html>
+

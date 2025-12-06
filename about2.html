@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stackly — Paper & Packaging Technology</title>
+  <link rel="icon" href="assets/iamges/logo1.webp" type="image/png">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-container">
+    <!-- Logo -->
+    <a class="logo" href="index.html" aria-label="Stackly Home">
+      <img src="assets/images/logo3.webp" alt="Stackly logo">
+    </a>
+
+    <!-- Desktop nav (visible ≥900px) -->
+    <nav class="nav-desktop desktop-only" aria-label="Primary">
+      <ul class="nav-list">
+        <li class="dropdown">
+          <a href="home1.html" class="dropbtn">Home ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="index.html">home1</a></li>
+          </ul>
+        </li>
+        <li><a href="services2.html">Services</a></li>
+        <li><a href="about2.html">About Us</a></li>
+        <li><a href="blog2.html">Blog</a></li>
+        <li><a href="contact2.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Desktop CTA -->
+    <a href="404page.html" class="btn neon desktop-only">Explore More</a>
+
+    <!-- Hamburger (visible <900px) -->
+    <button id="hamburger" class="hamburger mobile-only" aria-label="Open menu" aria-controls="site-nav" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+
+  <!-- Mobile overlay nav -->
+  <nav id="site-nav" class="site-nav mobile-only" aria-label="Primary" aria-hidden="true">
+    <button class="nav-close" id="nav-close" aria-label="Close menu">✕</button>
+    <ul class="nav-overlay-list">
+      <li class="dropdown">
+        <a href="home1.html" class="dropbtn">Home ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="index.html">home1</a></li>
+        </ul>
+      </li>
+      <li><a href="services2.html">Services</a></li>
+      <li><a href="about2.html">About Us</a></li>
+      <li><a href="blog2.html">Blog</a></li>
+      <li><a href="contact2.html">Contact</a></li>
+      <li><a href="404page.html" class="btn neon">Explore More</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+<section class="page-hero">
+  <div class="page-hero-overlay"></div>
+
+  <!-- Images -->
+  <img src="assets/images/p1.webp" alt="Banner 1" class="page-hero-bg active">
+  <img src="assets/images/p2.webp" alt="Banner 2" class="page-hero-bg">
+  <img src="assets/images/p3.webp" alt="Banner 3" class="page-hero-bg">
+
+  <!-- Text Content -->
+  <div class="page-hero-content">
+    <h1>ABOUT US</h1>
+    <p>Home > ABOUT US</p>
+  </div>
+</section>
+
+
+
+<!-- 🌟 Hero Section -->
+<section class="about-hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content reveal">
+    <h1>About <span>Our Banking Services</span></h1>
+    <p>Delivering secure banking solutions, modern financial technology, and customer-first services designed to help you grow financially.</p>
+  </div>
+</section>
+
+<!-- 🧑 About Section -->
+<section class="about-section">
+  <div class="container">
+    
+    <div class="about-left reveal-left">
+      <img src="assets/images/boss2.webp" alt="About Our Banking Services">
+    </div>
+
+    <div class="about-right reveal-right">
+      <h2>Who We Are</h2>
+      <p>
+        We are a modern banking institution committed to providing secure, transparent, and customer-focused financial services. 
+        Our team of experienced financial advisors, digital specialists, and support experts work together to ensure every customer receives trusted and convenient banking — from everyday transactions to long-term wealth planning.
+        Backed by advanced digital banking systems, strong security, and a culture of trust, we make banking simple, safe, and centered around your financial wellbeing.
+      </p>
+
+      <ul>
+        <li><i class="fa-solid fa-check"></i> 10+ Years of Trusted Banking Excellence</li>
+        <li><i class="fa-solid fa-check"></i> 50,000+ Customers Served Successfully</li>
+        <li><i class="fa-solid fa-check"></i> Professional & Certified Banking Experts</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- 🚀 Mission & Vision Section -->
+<section class="mission-vision">
+  <div class="container">
+
+    <div class="mv-card reveal">
+      <i class="fa-solid fa-bullseye"></i>
+      <h3>Our Mission</h3>
+      <p>
+        Our mission is to deliver secure, innovative, and accessible financial services that empower individuals and businesses to achieve stability and long-term financial growth.
+      </p>
+    </div>
+
+    <div class="mv-card reveal">
+      <i class="fa-solid fa-eye"></i>
+      <h3>Our Vision</h3>
+      <p>
+        Our vision is to become a trusted financial leader by offering advanced digital banking, transparent services, and strong customer relationships.
+      </p>
+    </div>
+
+    <div class="mv-card reveal">
+      <i class="fa-solid fa-handshake"></i>
+      <h3>Our Commitment</h3>
+      <p>
+        We are committed to customer-first banking, secure financial practices, and exceptional service — ensuring every client receives support, clarity, and trust throughout their financial journey.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 🏆 Core Values -->
+<section class="core-values">
+  <div class="container">
+    <h2 class="reveal">Our Core Values</h2>
+
+    <div class="values-grid">
+
+      <div class="value-card reveal">
+        <i class="fa-solid fa-lightbulb"></i>
+        <h3>Customer Care</h3>
+        <p>
+          We treat every customer with respect, transparency, and support — ensuring smooth and stress-free banking experiences.
+        </p>
+      </div>
+
+      <div class="value-card reveal">
+        <i class="fa-solid fa-people-group"></i>
+        <h3>Teamwork</h3>
+        <p>
+          Our advisors, digital banking teams, and service staff work together to deliver seamless financial solutions tailored to your needs.
+        </p>
+      </div>
+
+      <div class="value-card reveal">
+        <i class="fa-solid fa-shield"></i>
+        <h3>Security & Trust</h3>
+        <p>
+          We maintain top-tier security standards to protect your money and data — ensuring safe, reliable, and transparent banking.
+        </p>
+      </div>
+
+      <div class="value-card reveal">
+        <i class="fa-solid fa-rocket"></i>
+        <h3>Financial Excellence</h3>
+        <p>
+          Through modern banking technology, expert professionals, and continuous improvement, we deliver exceptional financial services.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="team-section" id="team">
+  <div class="team-container">
+    <h2 class="team-title">Meet Our Banking Experts</h2>
+
+    <div class="team-grid">
+
+      <!-- Expert 1 -->
+      <div class="team-card reveal-left">
+        <div class="team-image">
+          <img src="assets/images/man1.webp" alt="John N. Holmes">
+          <div class="image-overlay"></div>
+        </div>
+        <div class="team-info">
+          <h3>Mr. John N. Holmes</h3>
+          <p>Senior Financial Advisor</p>
+        </div>
+      </div>
+
+      <!-- Expert 2 -->
+      <div class="team-card reveal-left">
+        <div class="team-image">
+          <img src="assets/images/man2.webp" alt="Kenneth A. Spencer">
+          <div class="image-overlay"></div>
+        </div>
+        <div class="team-info">
+          <h3>Mr. Kenneth A. Spencer</h3>
+          <p>Loan & Credit Specialist</p>
+        </div>
+      </div>
+
+      <!-- Expert 3 -->
+      <div class="team-card reveal-right">
+        <div class="team-image">
+          <img src="assets/images/man3.webp" alt="David K. Marble">
+          <div class="image-overlay"></div>
+        </div>
+        <div class="team-info">
+          <h3>Mr. David K. Marble</h3>
+          <p>Investment & Wealth Manager</p>
+        </div>
+      </div>
+
+      <!-- Expert 4 -->
+      <div class="team-card reveal-right">
+        <div class="team-image">
+          <img src="assets/images/man1.webp" alt="Raymond Grimes">
+          <div class="image-overlay"></div>
+        </div>
+        <div class="team-info">
+          <h3>Mr. Raymond Grimes</h3>
+          <p>Customer Banking & Support Expert</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =======================
+         FOOTER
+======================= -->
+<footer class="footer reveal">
+  <div class="footer-container">
+
+    <!-- 1. Brand Column -->
+    <div class="footer-col footer-brand reveal">
+      <a href="index.html" class="footer-logo">
+        <img src="assets/images/logo3.webp" alt="Healthcare Logo">
+      </a>
+      <p>
+        We provide compassionate, reliable, and advanced medical care designed to support every stage of your health journey. 
+        From preventive checkups to specialized treatments, our mission is to keep you and your family healthy and protected.
+      </p>
+    </div>
+
+    <!-- 2. Quick Links -->
+    <div class="footer-col reveal">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="home1.html">Home</a></li>
+        <li><a href="about2.html">About Us</a></li>
+        <li><a href="services2.html">Services</a></li>
+        <li><a href="blog2.html">Blog</a></li>
+        <li><a href="contact2.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- 3. Services -->
+    <div class="footer-col reveal">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="404page.html">General Checkups</a></li>
+        <li><a href="404page.html">Diagnostics & Lab Tests</a></li>
+        <li><a href="404page.html">Specialist Consultations</a></li>
+        <li><a href="404page.html">Physiotherapy & Rehab</a></li>
+        <li><a href="404page.html">Emergency Care</a></li>
+        <li><a href="404page.html">Preventive Health Packages</a></li>
+      </ul>
+    </div>
+
+    <!-- 4. Newsletter / Contact -->
+    <div class="footer-col reveal">
+      <h4>Stay Connected</h4>
+      <p>Subscribe to receive health tips, wellness updates, and medical insights from our experts.</p>
+
+      <form class="footer-newsletter" onsubmit="event.preventDefault(); window.location.href='404page.html';">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+
+      <div class="social-links">
+        <a href="404page.html"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404page.html"><i class="fa-brands fa-twitter"></i></a>
+        <a href="404page.html"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404page.html"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom reveal">
+    <p>© 2025 HealthCare Clinic | All Rights Reserved | <a href="#">Privacy Policy</a></p>
+  </div>
+</footer>
+
+
+<script>
+
+
+
+
+
+//header function
+  const heroImages = document.querySelectorAll('.page-hero-bg');
+  let current = 0;
+
+  function showNextImage() {
+    heroImages[current].classList.remove('active');
+    current = (current + 1) % heroImages.length;
+    heroImages[current].classList.add('active');
+  }
+
+  setInterval(showNextImage, 4000); // change image every 4 seconds
+
+
+
+//footer function 
+
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      } else {
+        entry.target.classList.remove("active");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  reveals.forEach((el) => observer.observe(el));
+
+
+
+  
+(() => {
+  // Scope to ABOUT section only
+  const root = document.querySelector('.about-section');
+  if (!root) return;
+
+  const nodes = root.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+  // Fallback if IntersectionObserver isn’t available
+  if (!('IntersectionObserver' in window)) {
+    nodes.forEach(el => el.classList.add('active'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle('active', entry.isIntersecting);
+    });
+  }, { threshold: 0.2 });
+
+  nodes.forEach(el => io.observe(el));
+})();
+
+
+</script>
+<script src="main.js" defer></script>
+</body>
+</html>

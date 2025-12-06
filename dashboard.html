@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Stackly — Banking Dashboard</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="icon" href="assets/images/logo3.webp" type="image/png">
+
+  <style>
+    /* ----- Prevent horizontal overflow globally ----- */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    :where(.dash *){ box-sizing:border-box; }
+    .dash{
+      --radius:14px; --gap:14px;
+      /* BANKING PALETTE: deep navy + bright bank blue + soft paper */
+      --bg: #01293f;           /* deep navy background */
+      --panel: #023e59;        /* slightly lighter panel */
+      --text: #ffffff;
+      --muted: #9fbfd6;        /* muted text */
+      --gold: #00a3e0;         /* repurposed accent (blue) to avoid changing other rules */
+      --black: #000000;
+      --paper: #fffef9;
+
+      background:var(--bg); color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      min-height:100svh; display:grid; grid-template-columns:260px 1fr; grid-template-rows:auto 1fr;
+      grid-template-areas:"sidebar header" "sidebar main";
+      min-width:0;
+    }
+
+    /* entrance */
+    .fade-in { opacity:0; transform: translateY(6px); transition:opacity .45s ease, transform .45s ease; }
+    .fade-in.show { opacity:1; transform:none; }
+
+    /* SIDEBAR */
+    .dash__sidebar{ grid-area:sidebar; position:sticky; top:0; height:100svh; padding:18px;
+      background:linear-gradient(180deg,#021826,#012634); border-right:1px solid rgba(255,255,255,.03);
+      display:flex; flex-direction:column; gap:14px; transition:transform .28s ease, opacity .28s ease; box-sizing:border-box; }
+    .brand{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,.01); }
+    .brand__logo{
+      width:36px;height:36px;border-radius:8px;
+      background:linear-gradient(135deg,var(--gold), #002632);
+      box-shadow:0 10px 30px rgba(0,0,0,.5);
+      display:grid;place-items:center;font-weight:800;color:var(--black); font-size:16px;
+    }
+    .brand__name{ margin:0; font-size:15px; letter-spacing:.2px; color:var(--paper) }
+    .nav{ display:grid; gap:6px; overflow:auto; max-height:55vh; }
+    .nav a{ display:grid; grid-template-columns:28px 1fr auto; align-items:center; gap:10px; padding:10px 12px; border-radius:10px; text-decoration:none; color:inherit; border:1px solid transparent; transition:background .18s ease, transform .12s ease; }
+    .nav a:hover{ background: rgba(0,163,224,0.06); transform:translateX(4px); }
+    .nav a.is-active{ background:rgba(0,163,224,0.10); border-color:rgba(0,163,224,0.12); box-shadow:0 6px 30px rgba(0,163,224,0.04); }
+    .nav__icon{ width:28px; height:28px; display:grid; place-items:center; border-radius:8px; background:rgba(255,255,255,.02); font-size:12px; color:var(--muted) }
+    .sep{ height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.03),transparent); margin:6px 0; }
+    .sidebar-foot{ margin-top:auto; display:grid; gap:8px; }
+    .sidebar-foot .mini{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px; background:rgba(255,255,255,.01); border:1px solid rgba(255,255,255,.02); }
+    .btn{ padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.04); background:rgba(255,255,255,.02); color:var(--text); cursor:pointer; transition:transform .12s ease, box-shadow .12s ease; }
+    .btn:hover{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.5); }
+    .btn--brand{ background:linear-gradient(135deg,var(--gold), #00121a); border-color:transparent; color:var(--black); font-weight:700; }
+
+    /* collapse */
+    .dash.is-collapsed{ grid-template-columns:84px 1fr; }
+    .dash.is-collapsed .brand__name, .dash.is-collapsed .nav span, .dash.is-collapsed .sidebar-foot .mini strong, .dash.is-collapsed .sidebar-foot .mini small { display:none; }
+
+    /* HEADER */
+    .dash__header{ grid-area:header; display:grid; grid-template-columns:1fr auto auto; align-items:center; gap:10px;
+      padding:14px 18px; border-bottom:1px solid rgba(255,255,255,.03);
+      background:rgba(2,8,10,.35); backdrop-filter:saturate(140%) blur(6px); position:sticky; top:0; z-index:10; box-sizing:border-box; }
+    .search{ display:flex; align-items:center; gap:10px; background:#032033; border:1px solid rgba(255,255,255,.03); border-radius:10px; padding:10px 12px; }
+    .search input{ background:transparent; border:0; outline:0; color:var(--text); width:100%; font-size:14px; }
+
+    /* MAIN GRID */
+    .dash__main{ grid-area:main; padding:18px; display:grid; gap:var(--gap); grid-template-columns:repeat(12,1fr); align-content:start; min-width:0; box-sizing:border-box; }
+    .card{ background:var(--panel); border:1px solid rgba(255,255,255,.03); border-radius:var(--radius); padding:16px; box-shadow:0 10px 40px rgba(0,0,0,.5); transition:transform .14s ease, box-shadow .14s ease; min-width:0; }
+    .card:hover{ transform:translateY(-4px); box-shadow:0 18px 50px rgba(0,0,0,.6); }
+    .card__head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+    .card__title{ font-size:13px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
+
+    /* KPIs */
+    .kpis{ grid-column:1 / -1; display:grid; grid-template-columns:repeat(4,1fr); gap:var(--gap); }
+    .kpi{ display:grid; gap:8px; min-width:0; }
+    .kpi .value{ font-size:28px; font-weight:800; letter-spacing:-.02em; color:var(--gold); }
+    .kpi .delta{ font-size:12px; color:var(--muted); }
+
+    /* Layout */
+    .chart-lg{ grid-column:span 8; }
+    .chart-sm{ grid-column:span 4; }
+    .table-wrap{ grid-column:span 7; }
+    .activity{ grid-column:span 5; }
+
+    /* Table */
+    table{ width:100%; border-collapse:collapse; font-size:14px; color:var(--text); table-layout:fixed; word-break:break-word; }
+    thead th{ text-align:left; padding:10px; color:var(--muted); border-bottom:1px solid rgba(255,255,255,.03); }
+    tbody td{ padding:12px 10px; border-bottom:1px dashed rgba(255,255,255,.02); overflow-wrap:break-word; }
+    tbody tr:hover{ background:rgba(255,255,255,.01); }
+
+    /* Activity */
+    .timeline{ display:grid; gap:12px; }
+    .tick{ display:grid; grid-template-columns:28px 1fr auto; gap:12px; align-items:center; }
+    .dot{ width:10px;height:10px;border-radius:50%; background:var(--gold); box-shadow:0 0 0 6px rgba(0,163,224,.08); }
+    .muted{ color:var(--muted); font-size:12px; }
+
+    /* Responsive */
+    @media (max-width:1200px){ .chart-lg{ grid-column:1 / -1; } .chart-sm{ grid-column:span 6; } .table-wrap{ grid-column:1 / -1; } .activity{ grid-column:1 / -1; } .kpis{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:900px){ .dash{ grid-template-columns:84px 1fr; } }
+    @media (max-width:700px){ .dash__main{ grid-template-columns:repeat(6,1fr); } .chart-sm{ grid-column:span 6; } .kpis{ grid-template-columns:1fr; } }
+
+    /* Mobile off-canvas */
+    @media (max-width:900px) {
+      .dash { grid-template-columns: 1fr; grid-template-areas:"header" "main"; }
+      .dash__header { grid-column: 1 / -1; }
+      .dash__sidebar { position: fixed; left: 0; top: 0; height:100vh; width:84%; max-width:340px; transform: translateX(-110%); transition: transform 280ms ease, opacity 280ms ease; z-index:2000; box-shadow: 0 18px 40px rgba(2,6,23,.65); border-right:none; padding-top:18px; background: linear-gradient(180deg,#06171b,#012634); visibility:hidden; opacity:0; }
+      .dash__sidebar.open { transform: translateX(0); visibility: visible; opacity: 1; }
+      .mobile-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 1990; display: none; }
+      .mobile-overlay.visible { display:block; }
+      .dash__sidebar { position: fixed; }
+      .sidebar-foot #collapse { display: none; }
+      .dash__main { padding-top: 12px; }
+      .dash__header { padding-left: 56px; }
+      .mobile-toggle { display: flex !important; }
+    }
+
+    .mobile-toggle { display: none; position: absolute; left: 16px; top: 12px; z-index: 2010; align-items: center; justify-content: center; padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); cursor: pointer; color:var(--text); }
+
+    .chart-legend { display:flex; gap:10px; align-items:center; font-size:13px; color:var(--muted); }
+
+    a:focus, button:focus { outline: 3px solid rgba(0,163,224,.14); outline-offset: 3px; }
+
+    .mobile-close { display: none; position: absolute; right: 12px; top: 12px; z-index: 2055; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); color: var(--text); font-size: 18px; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,0.6); }
+    @media (max-width: 900px) { .mobile-close { display: flex; } }
+
+    .chart-wrap { width: 100%; max-width: 100%; box-sizing: border-box; overflow: hidden; }
+    .chart-lg .chart-wrap { height: 320px; min-height: 240px; }
+    .chart-sm .chart-wrap { height: 220px; min-height: 160px; }
+    @media (max-width: 900px) { .chart-lg .chart-wrap { height: 260px; } .chart-sm .chart-wrap { height: 180px; } }
+    .chart-wrap canvas { display: block !important; width: 100% !important; height: 100% !important; max-width: 100% !important; object-fit: contain; }
+    img, svg { max-width:100%; height:auto; display:block; }
+
+/* Remove the white scrollbar line inside mobile sidebar */
+@media (max-width: 900px) {
+
+  .dash__sidebar::-webkit-scrollbar,
+  .nav::-webkit-scrollbar {
+    width: 0 !important;
+    background: transparent !important;
+  }
+
+  .dash__sidebar::-webkit-scrollbar-thumb,
+  .nav::-webkit-scrollbar-thumb {
+    background: transparent !important;
+  }
+}
+
+
+/* Hide scrollbar for sidebar and nav (ALL views) */
+.dash__sidebar,
+.nav {
+  scrollbar-width: none !important;      /* Firefox */
+}
+
+.dash__sidebar::-webkit-scrollbar,
+.nav::-webkit-scrollbar {
+  width: 0 !important;                   /* Chrome, Edge, Safari */
+  background: transparent !important;
+}
+
+.dash__sidebar::-webkit-scrollbar-thumb,
+.nav::-webkit-scrollbar-thumb {
+  background: transparent !important;
+}
+
+
+  </style>
+</head>
+
+<body class="dash">
+  <!-- SIDEBAR -->
+  <aside class="dash__sidebar fade-in" id="sidebar">
+    <div class="brand">
+      <div class="brand__logo">H</div>
+      <h1 class="brand__name">Stackly — Bank</h1>
+    </div>
+
+    <nav class="nav">
+      <a class="is-active" href="404page.html"><span class="nav__icon">🏦</span><span>Overview</span><span></span></a>
+      <a href="404page.html"><span class="nav__icon">👩‍💼</span><span>Advisors</span></a>
+      <a href="404page.html"><span class="nav__icon">💳</span><span>Accounts</span></a>
+      <a href="404page.html"><span class="nav__icon">📅</span><span>Appointments</span></a>
+      <a href="404page.html"><span class="nav__icon">👥</span><span>Clients</span></a>
+      <a href="404page.html"><span class="nav__icon">📚</span><span>Resources</span></a>
+      <a href="404page.html"><span class="nav__icon">📞</span><span>Contact</span></a>
+      <a href="index.html"><span class="nav__icon">↩️</span><span>Back to Website</span></a>
+    </nav>
+
+    <div class="sep"></div>
+
+    <div class="sidebar-foot">
+      <div class="mini">
+        <div class="nav__icon">🏛️</div>
+        <div><strong>RetailOps</strong><br><small class="muted">Accounts & servicing</small></div>
+      </div>
+      <button class="btn" id="collapse">Toggle Sidebar</button>
+    </div>
+  </aside>
+
+  <!-- HEADER -->
+  <header class="dash__header">
+    <form action="404page.html" method="GET" class="search">
+      <span>🔍</span>
+      <input type="text" name="q" placeholder="Search clients, accounts, services..." aria-label="Search" />
+    </form>
+
+    <a href="404page.html"><button class="btn btn--brand">New Appointment</button></a>
+  </header>
+
+  <!-- MAIN -->
+  <main class="dash__main">
+    <!-- KPIs -->
+    <section class="kpis">
+      <div class="card kpi fade-in show">
+        <div class="card__head"><span class="card__title">Daily Appointments</span><span>⋯</span></div>
+        <div class="value">248</div><div class="delta">▲ +8% vs prev</div>
+      </div>
+
+      <div class="card kpi fade-in show" style="transition-delay:.05s">
+        <div class="card__head"><span class="card__title">New Clients</span><span>⋯</span></div>
+        <div class="value">42</div><div class="delta">▲ +5%</div>
+      </div>
+
+      <div class="card kpi fade-in show" style="transition-delay:.1s">
+        <div class="card__head"><span class="card__title">Active Accounts</span><span>⋯</span></div>
+        <div class="value">1,280</div><div class="delta" style="color:var(--gold)">• Stable</div>
+      </div>
+
+      <div class="card kpi fade-in show" style="transition-delay:.15s">
+        <div class="card__head"><span class="card__title">Avg Wait Time</span><span>⋯</span></div>
+        <div class="value">18 min</div><div class="delta" style="color:#d9534f">▼ -2 min</div>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="card chart-lg fade-in show" style="animation-delay:.02s">
+      <div class="card__head">
+        <span class="card__title">Appointments & Visits (Last 12 Months)</span>
+        <span class="chart-legend"><span style="color:var(--gold)">● Appointments</span><span style="color:var(--muted)">● Visits</span></span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="chartLine" aria-label="Appointments vs Visits chart"></canvas>
+      </div>
+    </section>
+
+    <section class="card chart-sm fade-in show" style="animation-delay:.04s">
+      <div class="card__head"><span class="card__title">Client Mix</span><span>🎛️</span></div>
+      <div class="chart-wrap">
+        <canvas id="chartDough" aria-label="Client mix doughnut chart" role="img"></canvas>
+      </div>
+    </section>
+
+    <section class="card chart-sm fade-in show" style="animation-delay:.06s">
+      <div class="card__head"><span class="card__title">Appointments This Week</span><span>📈</span></div>
+      <div class="chart-wrap">
+        <canvas id="chartBar" aria-label="Weekly appointments bar chart" role="img"></canvas>
+      </div>
+    </section>
+
+    <!-- Table -->
+    <section class="card table-wrap fade-in show" style="animation-delay:.08s">
+      <div class="card__head">
+        <span class="card__title">Top Clients</span>
+        <button class="btn" id="export">Export CSV</button>
+      </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>Client</th><th>Service</th><th>Balance (INR)</th><th>Status</th></tr></thead>
+          <tbody id="tbodyClients">
+            <tr><td>Mrs. A. Desai</td><td>Wealth Management</td><td>₹ 15,200</td><td>Active</td></tr>
+            <tr><td>Mr. R. Menon</td><td>Corporate Banking</td><td>₹ 72,000</td><td>Active</td></tr>
+            <tr><td>FreshBites Co (Corp.)</td><td>Payroll Services</td><td>₹ 21,000</td><td>Pending</td></tr>
+            <tr><td>DriveLine Solutions</td><td>Employee Banking</td><td>₹ 14,000</td><td>Active</td></tr>
+            <tr><td>GreenFleet Logistics</td><td>Trade Finance</td><td>₹ 8,500</td><td>Closed</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Activity -->
+    <section class="card activity fade-in show" style="animation-delay:.10s">
+      <div class="card__head"><span class="card__title">Activity</span><span>⚡</span></div>
+      <div class="timeline">
+        <div class="tick"><span class="dot" style="background:var(--gold); box-shadow:0 0 0 6px rgba(0,163,224,.08)"></span><p><strong>Mrs. A. Desai</strong> completed advisory session — follow-up in 2 weeks</p><span class="muted">5m</span></div>
+        <div class="tick"><span class="dot" style="background:#7ea6b8; box-shadow:0 0 0 6px rgba(126,166,184,.08)"></span><p><strong>Mr. R. Menon</strong> scheduled a corporate review</p><span class="muted">1h</span></div>
+        <div class="tick"><span class="dot" style="background:#ffd9b3; box-shadow:0 0 0 6px rgba(255,217,179,.06)"></span><p><strong>FreshBites Co</strong> requested payroll reconciliation</p><span class="muted">3h</span></div>
+        <div class="tick"><span class="dot" style="background:var(--gold); box-shadow:0 0 0 6px rgba(0,163,224,.06)"></span><p><strong>DriveLine Solutions</strong> employee banking workshop scheduled</p><span class="muted">6h</span></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Sidebar collapse
+    (function(){
+      const dash = document.querySelector('.dash');
+      const coll = document.getElementById('collapse');
+      if (coll) coll.addEventListener('click', ()=> dash.classList.toggle('is-collapsed'));
+
+      // theme toggle element support (optional)
+      const themeBtn = document.getElementById('theme');
+      if (themeBtn) themeBtn.addEventListener('click', ()=> {
+        const isLight = getComputedStyle(dash).getPropertyValue('--bg').trim() !== '#0d1a29';
+        if (isLight) {
+          // back to requested dark health-care theme
+          dash.style.setProperty('--bg', '#0d1b2a');
+          dash.style.setProperty('--panel', '#0f212c');
+          dash.style.setProperty('--text', '#ffffff');
+          dash.style.setProperty('--muted', '#bfc7cc');
+          dash.style.setProperty('--gold', '#d4af37');
+          dash.style.setProperty('--black', '#000000');
+          themeBtn.textContent = '🌙';
+          dash.classList.remove('is-light');
+        } else {
+          // simple light variant (if needed)
+          dash.style.setProperty('--bg', '#f6f7fb');
+          dash.style.setProperty('--panel', '#ffffff');
+          dash.style.setProperty('--text', '#0b0c0f');
+          dash.style.setProperty('--muted', '#6b6e73');
+          dash.style.setProperty('--gold', '#b07b3f');
+          dash.style.setProperty('--black', '#000000');
+          themeBtn.textContent = '☀️';
+          dash.classList.add('is-light');
+        }
+      });
+    })();
+
+    // Charts: banking metrics
+    const chartLine = new Chart(document.getElementById('chartLine'), {
+      type: 'line',
+      data: {
+        labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        datasets: [
+          { label:'Appointments', data:[420,450,480,520,560,600,610,630,640,700,720,760], tension:.32, fill:true, borderColor:'rgba(0,163,224,1)', backgroundColor:'rgba(0,163,224,0.12)', pointRadius:2 },
+          { label:'Visits', data:[380,400,420,460,480,500,510,530,540,580,600,620], tension:.32, fill:true, borderColor:'rgba(159,191,214,1)', backgroundColor:'rgba(159,191,214,0.06)', pointRadius:2 }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: getComputedStyle(document.body).getPropertyValue('--muted') } } }, scales: { x: { ticks: { color: getComputedStyle(document.body).getPropertyValue('--muted') } }, y: { ticks: { color: getComputedStyle(document.body).getPropertyValue('--muted') } } } }
+    });
+
+    const chartDough = new Chart(document.getElementById('chartDough'), {
+      type:'doughnut',
+      data:{ labels:['Retail','Corporate','Wealth','Other'], datasets:[{ data:[62,12,18,8], backgroundColor:['#00a3e0','#7ea6b8','#9fb6a8','#c9b79a'] }] },
+      options:{ responsive:true, maintainAspectRatio:false, cutout:'62%' }
+    });
+
+    const chartBar = new Chart(document.getElementById('chartBar'), {
+      type:'bar',
+      data:{ labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], datasets:[{ label:'Appointments', data:[48,56,52,60,70,40,22], backgroundColor:'#00a3e0' }] },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } }, scales: { x: { ticks: { color: getComputedStyle(document.body).getPropertyValue('--muted') } }, y: { ticks: { color: getComputedStyle(document.body).getPropertyValue('--muted') } } } }
+    });
+
+    const charts = [chartLine, chartDough, chartBar];
+    window.addEventListener('resize', () => charts.forEach(c => c && c.resize && c.resize()));
+
+    // Export table to CSV (banking filename)
+    const exportBtn = document.getElementById('export');
+    if (exportBtn) exportBtn.addEventListener('click', ()=> {
+      const rows = [...document.querySelectorAll('#tbodyClients tr')].map(tr => [...tr.children].map(td => `"${td.textContent.replace(/"/g,'""')}"`).join(','));
+      const csv  = ['"Client","Service","Balance (INR)","Status"', ...rows].join('\n');
+      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'stackly-clients.csv'; a.click(); URL.revokeObjectURL(a.href);
+    });
+
+    // entrance toggles
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.fade-in').forEach((el, i) => {
+        setTimeout(()=> el.classList.add('show'), 80 + i * 40);
+      });
+    });
+  </script>
+
+  <!-- mobile toggle script -->
+  <script>
+    (function(){
+      const header = document.querySelector('.dash__header');
+      const sidebar = document.querySelector('.dash__sidebar');
+      if (!header || !sidebar) return;
+
+      const btn = document.createElement('button');
+      btn.id = 'mobileToggle';
+      btn.className = 'mobile-toggle';
+      btn.setAttribute('aria-label','Open menu');
+      btn.innerHTML = '☰';
+      header.appendChild(btn);
+
+      const overlay = document.createElement('div');
+      overlay.className = 'mobile-overlay';
+      document.body.appendChild(overlay);
+
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'mobile-close';
+      closeBtn.setAttribute('aria-label', 'Close menu');
+      closeBtn.innerHTML = '✕';
+      sidebar.appendChild(closeBtn);
+
+      function openSidebar(){
+        sidebar.classList.add('open');
+        overlay.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+        btn.innerHTML = '✕';
+        btn.setAttribute('aria-label', 'Close menu');
+        setTimeout(() => {
+          const f = sidebar.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+          if (f) f.focus();
+        }, 120);
+      }
+      function closeSidebar(){
+        sidebar.classList.remove('open');
+        overlay.classList.remove('visible');
+        document.body.style.overflow = '';
+        btn.innerHTML = '☰';
+        btn.setAttribute('aria-label', 'Open menu');
+        setTimeout(()=> btn.focus(), 80);
+      }
+
+      btn.addEventListener('click', (e)=> { e.preventDefault(); sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
+      overlay.addEventListener('click', closeSidebar);
+      closeBtn.addEventListener('click', closeSidebar);
+      sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setTimeout(closeSidebar, 50)));
+      document.addEventListener('keydown', (e)=> { if (e.key === 'Escape' && sidebar.classList.contains('open')) closeSidebar(); });
+
+    })();
+  </script>
+</body>
+</html>

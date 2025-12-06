@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Bank — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+
+    <div class="header-left">
+  <img id="site-logo" src="assets/images/logo3.webp" alt="Bank Logo">
+</div>
+
+<!-- CENTER: Navigation (desktop) -->
+<nav class="header-nav" aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="home-menu">
+        <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+        <span class="home-arrow"> ▾</span>
+      </button>
+
+      <ul id="home-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="home1.html">Home 2</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="pages-menu">Pages ▾</button>
+      <ul id="pages-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+        <li role="none"><a role="menuitem" href="services.html">Services</a></li>
+        <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+        <li role="none"><a role="menuitem" href="blogs.html">Blogs</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item"><a class="nav-link" href="personal.html">Personal Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="business.html">Business Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+  </ul>
+</nav>
+
+<!-- RIGHT: Login button (desktop) + Hamburger (mobile) -->
+<div class="header-right">
+  <!-- Desktop login button: visible on desktop, hidden on small screens -->
+<a href="login.html">
+  <button id="login-btn" class="btn login-btn" aria-label="Login (desktop)">Login</button>
+</a>
+
+
+  <!-- Hamburger (corner right on mobile) -->
+  <button id="hamburger" class="hamburger" aria-label="Open menu"
+          aria-controls="mobile-menu" aria-expanded="false" aria-pressed="false">
+    <span class="hamburger-inner" aria-hidden="true">
+      <svg width="22" height="14" viewBox="0 0 22 14" xmlns="http://www.w3.org/2000/svg">
+        <rect class="h1" y="0" width="22" height="2" rx="1"></rect>
+        <rect class="h2" y="6" width="22" height="2" rx="1"></rect>
+        <rect class="h3" y="12" width="22" height="2" rx="1"></rect>
+      </svg>
+    </span>
+  </button>
+</div>
+
+</div>
+</header>
+
+<!-- MOBILE MENU (centered overlay) -->
+<div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="mobile-menu-inner" role="document" aria-labelledby="mobile-menu-title">
+    <div class="mobile-menu-header">
+      <div class="mobile-logo-wrap">
+        <img id="mobile-logo" alt="Bank Logo">
+      </div>
+      <button id="mobile-close" class="btn icon-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 3 L17 17 M17 3 L3 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- NAVIGATION (mobile) -->
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <ul class="mobile-nav-list">
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="home">
+            <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+            <span class="home-arrow"> ▾</span>
+          </button>
+
+          <ul class="mobile-submenu" data-mobile-menu="home">
+            <li><a href="home1.html">Home 2</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="pages">Pages ▾</button>
+          <ul class="mobile-submenu" data-mobile-menu="pages">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item"><a class="mobile-link" href="personal.html">Personal Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="business.html">Business Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="contact.html">Contact</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="dashboard.html">Dashboard</a></li>
+
+        <!-- MOBILE: Login button placed inside hamburger menu -->
+       <li class="mobile-item mobile-login-item">
+  <a href="login.html">
+    <button id="mobile-login-btn" class="btn mobile-login-btn">Login</button>
+  </a>
+</li>
+
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+
+
+
+<main class="contactPageRoot">
+    <!-- HERO -->
+    <header class="contactHero" role="banner" aria-label="Contact hero">
+      <div class="cpHero-eyebrow">Get in touch</div>
+      <h1 class="cpHero-title">Contact Your Bank</h1>
+      <p class="cpHero-sub">Questions about accounts, business banking, loans or support? Drop us a message or visit our branch — we’re here to help.</p>
+    </header>
+
+    <!-- GRID: MAP + FORM -->
+    <section class="cpGrid" aria-label="Contact map and form">
+
+      <!-- MAP + contact details -->
+      <div>
+        <div class="cpMapCard" role="region" aria-label="Map showing branch location">
+          <!-- Google Maps embed iframe (replace coordinates or place with yours) -->
+          <!-- Example coordinates set for Mumbai: 19.0760,72.8777 -->
+          <iframe
+            class="cpMapFrame"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=19.0760,72.8777&z=15&output=embed"
+            title="Branch location map">
+          </iframe>
+        </div>
+
+        <!-- contact info below map -->
+        <div class="cpContactInfo" aria-hidden="false">
+          <div class="cpContactCol">
+            <div class="cpContactItem">
+              <div class="cpContactHeading">Head Office</div>
+              <p class="cpContactText">Level 12, Finance Tower<br>Fort District, Mumbai 400001</p>
+            </div>
+
+            <div class="cpContactItem">
+              <div class="cpContactHeading">Phone</div>
+              <p class="cpContactText"><a href="tel:+912245678900" style="color:inherit; text-decoration:none;">+91 22 4567 8900</a></p>
+            </div>
+
+            <div class="cpContactItem">
+              <div class="cpContactHeading">Email</div>
+              <p class="cpContactText"><a href="mailto:support@yourbank.example" style="color:inherit; text-decoration:none;">support@yourbank.example</a></p>
+            </div>
+          </div>
+
+          <div class="cpContactCol">
+            <div class="cpContactItem">
+              <div class="cpContactHeading">Office Hours</div>
+              <p class="cpContactText">
+                <span class="cpChip">Mon–Fri: 9:00 — 18:00</span>
+                <span class="cpChip">Sat (Branches): 9:00 — 13:00</span>
+              </p>
+            </div>
+
+            <div class="cpContactItem">
+              <div class="cpContactHeading">Support</div>
+              <p class="cpContactText">24/7 in-app chat & phone support for account emergencies.</p>
+            </div>
+
+            <div class="cpContactItem">
+              <div class="cpContactHeading">Branch services</div>
+              <p class="cpContactText">Cash deposits/withdrawals, account opening, notarisation & advisory.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM CARD -->
+      <aside class="cpFormCard" role="region" aria-label="Contact form">
+        <h2 class="cpFormTitle">Send us a message</h2>
+        <p class="cpFormSub">Tell us how we can help — a team member will respond within one business day.</p>
+
+        <form class="cpForm" id="cpForm" novalidate>
+          <label for="cpName">Full name</label>
+          <input id="cpName" name="name" type="text" placeholder="Your full name" required aria-required="true">
+
+          <div class="cpForm-row">
+            <div class="cpHalf">
+              <label for="cpEmail">Email</label>
+              <input id="cpEmail" name="email" type="email" placeholder="you@example.com">
+            </div>
+            <div class="cpHalf">
+              <label for="cpPhone">Phone</label>
+              <input id="cpPhone" name="phone" type="tel" placeholder="+91 98765 43210" pattern="[0-9\s+-]{7,20}" required aria-required="true">
+            </div>
+          </div>
+
+          <label for="cpTopic">Topic</label>
+          <select id="cpTopic" name="topic" aria-label="Topic">
+            <option value="general">General enquiry</option>
+            <option value="accounts">Accounts & cards</option>
+            <option value="loans">Loans & finance</option>
+            <option value="business">Business banking</option>
+            <option value="support">Technical support</option>
+          </select>
+
+          <label for="cpMessage">Message</label>
+          <textarea id="cpMessage" name="message" placeholder="Write your message here..." aria-label="Message"></textarea>
+
+          <div class="cpForm-actions">
+            <button class="cpBtnPrimary" type="submit">Send message</button>
+            <button type="button" class="cpBtnGhost" id="cpCallBtn">Call us</button>
+          </div>
+
+          <div id="cpFormMsg" class="cpFormMsg" role="status" aria-live="polite"></div>
+        </form>
+      </aside>
+
+    </section>
+
+    <!-- mobile quick contact fallback -->
+    <div class="cpQuickCard" aria-hidden="false">
+      <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;">
+        <div>
+          <strong>Call support</strong>
+          <div style="color:#cfe3ff;">+91 22 4567 8900</div>
+        </div>
+        <div>
+          <a class="cpBtnPrimary" href="tel:+912245678900">Call Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cpBottom">
+      Prefer a quick chat? Use our app's in-app chat or email <a href="mailto:support@yourbank.example" style="color:#dff0ff;">support@yourbank.example</a>.
+    </div>
+  </main>
+
+
+  <!-- FOOTER -->
+ <footer class="bank-footer">
+  <div class="bank-footer-inner container">
+
+    <!-- Column 1: Brand & short about -->
+    <div class="footer-col footer-brand">
+      <div class="brand-row">
+        <img src="assets/images/logo3.webp" alt="Bank logo" class="footer-logo">
+        <h3 class="brand-title">Your Bank</h3>
+      </div>
+      <p class="brand-desc">
+        Secure banking built for people and businesses — modern tools, 24/7 protection,
+        and expert support to keep your money moving safely.
+      </p>
+      <a class="btn footer-cta" href="404page.html">Open an Account</a>
+    </div>
+
+    <!-- Column 2: Quick links -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Quick Links</h4>
+      <ul class="footer-links-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Products/Services -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Products</h4>
+      <ul class="footer-links-list">
+        <li><a href="404page.html">Savings Account</a></li>
+        <li><a href="404page.html">Personal Loans</a></li>
+        <li><a href="404page.html">Credit Cards</a></li>
+        <li><a href="404page.html">Business Banking</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Contact -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Contact</h4>
+      <address class="contact-info">
+        <div>Plot No 42, Sector 7,<br/> Financial District, City</div>
+        <div class="contact-row">📞 <a href="tel:+919876543210">+91 98765 43210</a></div>
+        <div class="contact-row">✉️ <a href="mailto:help@yourbank.example">help@yourbank.example</a></div>
+        <div class="contact-row">⏰ Mon–Fri: 09:00 — 18:00</div>
+      </address>
+    </div>
+
+    <!-- Column 5: Social / small note -->
+    <div class="footer-col footer-social">
+      <h4 class="footer-heading">Follow Us</h4>
+      <p class="social-desc">Stay updated — security tips, product updates and offers.</p>
+      <div class="social-row">
+        <a class="social-btn" href="404page.html" aria-label="Twitter">X</a>
+        <a class="social-btn" href="404page.html" aria-label="LinkedIn">in</a>
+        <a class="social-btn" href="404page.html" aria-label="Github">GH</a>
+        <a class="social-btn" href="404page.html" aria-label="Instagram">IG</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bank-footer-bottom">
+    <div class="container small">
+      <div>© <span id="footer-year"></span> Your Bank. All rights reserved.</div>
+      <div class="legal-links">
+        <a href="404page.html">Privacy</a>
+        <a href="404page.html">Terms</a>
+        <a href="404page.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+ <!-- JS: simple validation + form handling + call button -->
+  <script>
+    (function(){
+      const form = document.getElementById('cpForm');
+      const msg = document.getElementById('cpFormMsg');
+      const callBtn = document.getElementById('cpCallBtn');
+
+      // Validate simple fields
+      function validate() {
+        const name = document.getElementById('cpName').value.trim();
+        const phone = document.getElementById('cpPhone').value.trim();
+        if (!name) {
+          return { ok:false, text:'Please enter your full name.' };
+        }
+        if (!phone) {
+          return { ok:false, text:'Please enter a phone number.' };
+        }
+        // basic phone digits check
+        const digits = phone.replace(/[^0-9]/g,'');
+        if (digits.length < 7) return { ok:false, text:'Please enter a valid phone number.' };
+        return { ok:true, text:'' };
+      }
+
+      // submit handler — mock: show success message (no backend)
+      form.addEventListener('submit', function(ev){
+        ev.preventDefault();
+        msg.textContent = '';
+        msg.classList.remove('cpError');
+
+        const ok = validate();
+        if (!ok.ok) {
+          msg.textContent = ok.text;
+          msg.classList.add('cpError');
+          return;
+        }
+
+        // show animated success message
+        msg.style.opacity = 0;
+        msg.textContent = 'Thank you — we received your message. We will contact you shortly.';
+        msg.style.color = '#dff0e6';
+        msg.style.transition = 'opacity .28s ease';
+        requestAnimationFrame(() => msg.style.opacity = 1);
+
+        // reset form
+        form.reset();
+
+       
+         window.location.href = '404page.html';
+      });
+
+      // call button opens tel:
+      callBtn.addEventListener('click', function(){
+        window.location.href = 'tel:+912245678900';
+      });
+
+      // small UX: focus first input on load
+      document.getElementById('cpName').focus && document.getElementById('cpName').focus();
+    })();
+  </script>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
+

@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Bank — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+
+    <div class="header-left">
+  <img id="site-logo" src="assets/images/logo3.webp" alt="Bank Logo">
+</div>
+
+<!-- CENTER: Navigation (desktop) -->
+<nav class="header-nav" aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="home-menu">
+        <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+        <span class="home-arrow"> ▾</span>
+      </button>
+
+      <ul id="home-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="home1.html">Home 2</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="pages-menu">Pages ▾</button>
+      <ul id="pages-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+        <li role="none"><a role="menuitem" href="services.html">Services</a></li>
+        <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+        <li role="none"><a role="menuitem" href="blogs.html">Blogs</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item"><a class="nav-link" href="personal.html">Personal Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="business.html">Business Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+  </ul>
+</nav>
+
+<!-- RIGHT: Login button (desktop) + Hamburger (mobile) -->
+<div class="header-right">
+  <!-- Desktop login button: visible on desktop, hidden on small screens -->
+<a href="login.html">
+  <button id="login-btn" class="btn login-btn" aria-label="Login (desktop)">Login</button>
+</a>
+
+
+  <!-- Hamburger (corner right on mobile) -->
+  <button id="hamburger" class="hamburger" aria-label="Open menu"
+          aria-controls="mobile-menu" aria-expanded="false" aria-pressed="false">
+    <span class="hamburger-inner" aria-hidden="true">
+      <svg width="22" height="14" viewBox="0 0 22 14" xmlns="http://www.w3.org/2000/svg">
+        <rect class="h1" y="0" width="22" height="2" rx="1"></rect>
+        <rect class="h2" y="6" width="22" height="2" rx="1"></rect>
+        <rect class="h3" y="12" width="22" height="2" rx="1"></rect>
+      </svg>
+    </span>
+  </button>
+</div>
+
+</div>
+</header>
+
+<!-- MOBILE MENU (centered overlay) -->
+<div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="mobile-menu-inner" role="document" aria-labelledby="mobile-menu-title">
+    <div class="mobile-menu-header">
+      <div class="mobile-logo-wrap">
+        <img id="mobile-logo" alt="Bank Logo">
+      </div>
+      <button id="mobile-close" class="btn icon-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 3 L17 17 M17 3 L3 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- NAVIGATION (mobile) -->
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <ul class="mobile-nav-list">
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="home">
+            <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+            <span class="home-arrow"> ▾</span>
+          </button>
+
+          <ul class="mobile-submenu" data-mobile-menu="home">
+            <li><a href="home1.html">Home 2</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="pages">Pages ▾</button>
+          <ul class="mobile-submenu" data-mobile-menu="pages">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item"><a class="mobile-link" href="personal.html">Personal Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="business.html">Business Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="contact.html">Contact</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="dashboard.html">Dashboard</a></li>
+
+        <!-- MOBILE: Login button placed inside hamburger menu -->
+       <li class="mobile-item mobile-login-item">
+  <a href="login.html">
+    <button id="mobile-login-btn" class="btn mobile-login-btn">Login</button>
+  </a>
+</li>
+
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+
+
+<!-- PERSONAL BANKING SECTION (no header/footer) -->
+<section class="personalBankRoot" aria-labelledby="personalBankTitle">
+
+  <!-- HERO -->
+  <div class="personalBankHero">
+    <div class="personalBankHero-inner">
+      <h1 id="personalBankTitle" class="pbHero-title">Personal Banking</h1>
+      <p class="pbHero-sub">Accounts, cards and tools built for everyday life — simple, secure and fast.</p>
+
+      <div class="pbHero-ctas">
+        <a class="pbBtn-primary" href="#pbProducts">View Accounts</a>
+        <a class="pbBtn-outline" href="#pbCompare">Compare Plans</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS / TABS -->
+  <div id="pbProducts" class="pbProductsSection">
+    <div class="pbProducts-inner">
+
+      <!-- tabs -->
+      <div class="pbTabs" role="tablist" aria-label="Personal bank product tabs">
+        <button class="pbTab is-active" role="tab" aria-selected="true" data-target="pbSavings">Savings</button>
+        <button class="pbTab" role="tab" aria-selected="false" data-target="pbCurrent">Current</button>
+        <button class="pbTab" role="tab" aria-selected="false" data-target="pbYouth">Youth</button>
+        <button class="pbTab" role="tab" aria-selected="false" data-target="pbSenior">Senior</button>
+      </div>
+
+      <!-- tab panels -->
+      <div class="pbPanels">
+        <!-- SAVINGS -->
+        <div id="pbSavings" class="pbPanel" role="tabpanel" aria-hidden="false">
+          <div class="pbGrid">
+            <article class="pbCard">
+              <div class="pbCard-head">
+                <h3 class="pbCard-title">Basic Savings</h3>
+                <div class="pbRate">Interest <strong>3.5% p.a.</strong></div>
+              </div>
+              <p class="pbCard-desc">No minimum balance, instant digital onboarding and free netbanking.</p>
+              <ul class="pbCard-list">
+                <li>Zero monthly fees</li>
+                <li>Instant debit card</li>
+                <li>Mobile & UPI</li>
+              </ul>
+              <div class="pbCard-actions">
+                <button class="pbOpenBtn" data-plan="Basic Savings">Open Account</button>
+                <a href="404page.html" class="pbLearn">Learn more</a>
+              </div>
+            </article>
+
+            <article class="pbCard pbCard-featured">
+              <div class="pbCard-head">
+                <h3 class="pbCard-title">Savings Plus</h3>
+                <div class="pbRate">Interest <strong>4.25% p.a.</strong></div>
+              </div>
+              <p class="pbCard-desc">Higher interest tiers, free ATM withdrawals and overdraft facility.</p>
+              <ul class="pbCard-list">
+                <li>Free ATMs (up to 10 / mo)</li>
+                <li>Priority support</li>
+                <li>Higher transfer limits</li>
+              </ul>
+              <div class="pbCard-actions">
+                <button class="pbOpenBtn" data-plan="Savings Plus">Open Account</button>
+                <a href="404page.html" class="pbLearn">Learn more</a>
+              </div>
+            </article>
+
+            <article class="pbCard">
+              <div class="pbCard-head">
+                <h3 class="pbCard-title">Fixed Saver</h3>
+                <div class="pbRate">Interest <strong>6.0% p.a.</strong></div>
+              </div>
+              <p class="pbCard-desc">Auto-sweep to FD, higher interest for parked funds, flexible tenures.</p>
+              <ul class="pbCard-list">
+                <li>Auto-sweep to FD</li>
+                <li>Penalty-free partial withdrawal</li>
+                <li>Senior booster available</li>
+              </ul>
+              <div class="pbCard-actions">
+                <button class="pbOpenBtn" data-plan="Fixed Saver">Open Account</button>
+                <a href="404page.html" class="pbLearn">Learn more</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- CURRENT -->
+        <div id="pbCurrent" class="pbPanel" role="tabpanel" aria-hidden="true">
+          <div class="pbGrid">
+            <article class="pbCard">
+              <div class="pbCard-head">
+                <h3 class="pbCard-title">Business Current</h3>
+                <div class="pbRate">Monthly fee <strong>₹199</strong></div>
+              </div>
+              <p class="pbCard-desc">Optimized for businesses with multi-user access and payroll tools.</p>
+              <ul class="pbCard-list">
+                <li>Multi-user access & permissions</li>
+                <li>Bulk payouts</li>
+                <li>Cheque book & merchant services</li>
+              </ul>
+              <div class="pbCard-actions">
+                <button class="pbOpenBtn" data-plan="Business Current">Open Account</button>
+                <a href="#" class="pbLearn">Learn more</a>
+              </div>
+            </article>
+
+            <article class="pbCard">
+              <div class="pbCard-head">
+                <h3 class="pbCard-title">Pro Current</h3>
+                <div class="pbRate">Monthly fee <strong>₹499</strong></div>
+              </div>
+              <p class="pbCard-desc">Higher limits, dedicated relationship manager and merchant APIs.</p>
+              <ul class="pbCard-list">
+                <li>Dedicated RM</li>
+                <li>API access for invoicing</li>
+                <li>Lower remittance fees</li>
+              </ul>
+              <div class="pbCard-actions">
+                <button class="pbOpenBtn" data-plan="Pro Current">Open Account</button>
+                <a href="#" class="pbLearn">Learn more</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- YOUTH -->
+        <div id="pbYouth" class="pbPanel" role="tabpanel" aria-hidden="true">
+          <div class="pbGrid">
+            <article class="pbCard">
+              <div class="pbCard-head">
+                <h3 class="pbCard-title">Student Saver</h3>
+                <div class="pbRate">Interest <strong>3.75% p.a.</strong></div>
+              </div>
+              <p class="pbCard-desc">Special features for students: parental controls and spend limits.</p>
+              <ul class="pbCard-list">
+                <li>Parental approvals</li>
+                <li>Low minimum balance</li>
+                <li>Card controls & limits</li>
+              </ul>
+              <div class="pbCard-actions">
+                <button class="pbOpenBtn" data-plan="Student Saver">Open Account</button>
+                <a href="404page.html" class="pbLearn">Learn more</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- SENIOR -->
+        <div id="pbSenior" class="pbPanel" role="tabpanel" aria-hidden="true">
+          <div class="pbGrid">
+            <article class="pbCard pbCard-featured">
+              <div class="pbCard-head">
+                <h3 class="pbCard-title">Senior Saver</h3>
+                <div class="pbRate">Interest <strong>6.5% p.a.</strong></div>
+              </div>
+              <p class="pbCard-desc">Higher deposit rates, medical insurance add-ons and doorstep banking.</p>
+              <ul class="pbCard-list">
+                <li>Higher FD rates</li>
+                <li>Doorstep banking</li>
+                <li>Senior support hotline</li>
+              </ul>
+              <div class="pbCard-actions">
+                <button class="pbOpenBtn" data-plan="Senior Saver">Open Account</button>
+                <a href="#" class="pbLearn">Learn more</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div> <!-- end panels -->
+
+    </div>
+  </div>
+
+  <!-- COMPARISON AREA -->
+  <div id="pbCompare" class="pbCompareSection">
+    <div class="pbCompare-inner">
+      <h2 class="pbCompare-title">Compare accounts</h2>
+      <p class="pbCompare-sub">Select up to 3 accounts to compare features & rates.</p>
+
+      <div class="pbCompare-controls">
+        <select id="pbCompareSelect" multiple size="4" aria-label="Select accounts to compare">
+          <option value="Basic Savings">Basic Savings</option>
+          <option value="Savings Plus">Savings Plus</option>
+          <option value="Fixed Saver">Fixed Saver</option>
+          <option value="Business Current">Business Current</option>
+          <option value="Pro Current">Pro Current</option>
+          <option value="Student Saver">Student Saver</option>
+          <option value="Senior Saver">Senior Saver</option>
+        </select>
+        <button id="pbCompareBtn" class="pbCompareBtn">Compare</button>
+      </div>
+
+      <div id="pbCompareTable" class="pbCompareTable" aria-hidden="true">
+        <!-- JS will populate comparison table here -->
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- OPEN ACCOUNT MODAL (hidden by default) -->
+<div id="pbModal" class="pbModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="pbModalTitle">
+  <div class="pbModal-inner" role="document">
+    <button class="pbModal-close" aria-label="Close">✕</button>
+    <h3 id="pbModalTitle">Open Account</h3>
+    <p class="pbModal-sub">Fill this quick form and our advisor will reach out.</p>
+
+    <form id="pbOpenForm" class="pbOpenForm" novalidate>
+      <input type="hidden" name="plan" id="pbSelectedPlan">
+      <label>
+        <span>Name</span>
+        <input type="text" name="name" required placeholder="Your full name">
+      </label>
+
+      <label>
+        <span>Mobile</span>
+        <input type="tel" name="mobile" required placeholder="+91 98765 43210" pattern="[0-9\s+-]{7,20}">
+      </label>
+
+      <label>
+        <span>Email (optional)</span>
+        <input type="email" name="email" placeholder="you@example.com">
+      </label>
+
+      <div class="pbForm-actions">
+        <button type="submit" class="pbModal-submit">Submit</button>
+        <button type="button" class="pbModal-cancel">Cancel</button>
+      </div>
+
+      <div id="pbFormMsg" class="pbFormMsg" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+
+
+  <!-- FOOTER -->
+ <footer class="bank-footer">
+  <div class="bank-footer-inner container">
+
+    <!-- Column 1: Brand & short about -->
+    <div class="footer-col footer-brand">
+      <div class="brand-row">
+        <img src="assets/images/logo3.webp" alt="Bank logo" class="footer-logo">
+        <h3 class="brand-title">Your Bank</h3>
+      </div>
+      <p class="brand-desc">
+        Secure banking built for people and businesses — modern tools, 24/7 protection,
+        and expert support to keep your money moving safely.
+      </p>
+      <a class="btn footer-cta" href="404page.html">Open an Account</a>
+    </div>
+
+    <!-- Column 2: Quick links -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Quick Links</h4>
+      <ul class="footer-links-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Products/Services -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Products</h4>
+      <ul class="footer-links-list">
+        <li><a href="404page.html">Savings Account</a></li>
+        <li><a href="404page.html">Personal Loans</a></li>
+        <li><a href="404page.html">Credit Cards</a></li>
+        <li><a href="404page.html">Business Banking</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Contact -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Contact</h4>
+      <address class="contact-info">
+        <div>Plot No 42, Sector 7,<br/> Financial District, City</div>
+        <div class="contact-row">📞 <a href="tel:+919876543210">+91 98765 43210</a></div>
+        <div class="contact-row">✉️ <a href="mailto:help@yourbank.example">help@yourbank.example</a></div>
+        <div class="contact-row">⏰ Mon–Fri: 09:00 — 18:00</div>
+      </address>
+    </div>
+
+    <!-- Column 5: Social / small note -->
+    <div class="footer-col footer-social">
+      <h4 class="footer-heading">Follow Us</h4>
+      <p class="social-desc">Stay updated — security tips, product updates and offers.</p>
+      <div class="social-row">
+        <a class="social-btn" href="404page.html" aria-label="Twitter">X</a>
+        <a class="social-btn" href="404page.html" aria-label="LinkedIn">in</a>
+        <a class="social-btn" href="404page.html" aria-label="Github">GH</a>
+        <a class="social-btn" href="404page.html" aria-label="Instagram">IG</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bank-footer-bottom">
+    <div class="container small">
+      <div>© <span id="footer-year"></span> Your Bank. All rights reserved.</div>
+      <div class="legal-links">
+        <a href="404page.html">Privacy</a>
+        <a href="404page.html">Terms</a>
+        <a href="404page.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Tabs
+  const tabs = Array.from(document.querySelectorAll('.pbTab'));
+  const panels = Array.from(document.querySelectorAll('.pbPanel'));
+  tabs.forEach(t => {
+    t.addEventListener('click', () => {
+      tabs.forEach(x => x.classList.remove('is-active') || x.setAttribute('aria-selected','false'));
+      t.classList.add('is-active'); t.setAttribute('aria-selected','true');
+      const target = t.getAttribute('data-target');
+      panels.forEach(p => {
+        if (p.id === target) { p.setAttribute('aria-hidden','false'); } else p.setAttribute('aria-hidden','true');
+      });
+      // move focus for accessibility
+      document.getElementById(target).focus && document.getElementById(target).focus();
+    });
+  });
+
+  // Open account modal
+  const modal = document.getElementById('pbModal');
+  const modalClose = modal.querySelector('.pbModal-close');
+  const modalCancel = modal.querySelector('.pbModal-cancel');
+  const openBtns = Array.from(document.querySelectorAll('.pbOpenBtn'));
+  const planInput = document.getElementById('pbSelectedPlan');
+  const form = document.getElementById('pbOpenForm');
+  const msg = document.getElementById('pbFormMsg');
+
+  openBtns.forEach(b => {
+    b.addEventListener('click', (e) => {
+      const plan = b.getAttribute('data-plan') || '';
+      planInput.value = plan;
+      msg.textContent = '';
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeModal() {
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modalCancel.addEventListener('click', closeModal);
+  modal.addEventListener('click', (ev) => {
+    if (ev.target === modal) closeModal();
+  });
+// Simple form submit (redirect to 404 page)
+form.addEventListener('submit', (ev) => {
+  ev.preventDefault();
+
+  const name = form.name.value.trim();
+  const mobile = form.mobile.value.trim();
+
+  if (!name || !mobile) {
+    msg.textContent = 'Please enter name and mobile number.';
+    return;
+  }
+
+  // Redirect after form validation
+  window.location.href = '404page.html';
+});
+
+  // Compare functionality: build a simple table using selected options
+  const select = document.getElementById('pbCompareSelect');
+  const compareBtn = document.getElementById('pbCompareBtn');
+  const compareTable = document.getElementById('pbCompareTable');
+
+  // Data model for the plans (sync with cards above)
+  const PB_PLANS = {
+    'Basic Savings': {
+      rate: '3.5% p.a.',
+      fee: '₹0 / mo',
+      perks: ['Zero monthly fees','Instant debit card','Mobile & UPI']
+    },
+    'Savings Plus': {
+      rate: '4.25% p.a.',
+      fee: '₹0 / mo',
+      perks: ['Free ATMs (up to 10 / mo)','Priority support','Higher transfer limits']
+    },
+    'Fixed Saver': {
+      rate: '6.0% p.a.',
+      fee: '₹0 / mo',
+      perks: ['Auto-sweep to FD','Penalty-free withdrawal','Senior booster available']
+    },
+    'Business Current': {
+      rate: 'N/A',
+      fee: '₹199 / mo',
+      perks: ['Multi-user access','Bulk payouts','Merchant services']
+    },
+    'Pro Current': {
+      rate: 'N/A',
+      fee: '₹499 / mo',
+      perks: ['Dedicated RM','API access','Lower remittance fees']
+    },
+    'Student Saver': {
+      rate: '3.75% p.a.',
+      fee: '₹0 / mo',
+      perks: ['Parental approvals','Low minimum balance','Card controls']
+    },
+    'Senior Saver': {
+      rate: '6.5% p.a.',
+      fee: '₹0 / mo',
+      perks: ['Higher FD rates','Doorstep banking','Senior support hotline']
+    }
+  };
+
+  function buildCompareTable(selected) {
+    if (!selected.length) {
+      compareTable.innerHTML = '<div class="pbCompareEmpty">Select up to 3 accounts and click Compare.</div>';
+      compareTable.setAttribute('aria-hidden','true');
+      return;
+    }
+    compareTable.setAttribute('aria-hidden','false');
+    // limit to 3
+    selected = selected.slice(0,3);
+    let html = '<div class="pbCmpWrap">';
+    // header row: names
+    html += '<div class="pcmpRow"><div class="pcmpCell"><strong>Feature</strong></div>';
+    selected.forEach(s => html += `<div class="pcmpCell"><strong>${escapeHtml(s)}</strong></div>`);
+    html += '</div>';
+    // Rate row
+    html += '<div class="pcmpRow"><div class="pcmpCell">Interest / Fee</div>';
+    selected.forEach(s => html += `<div class="pcmpCell">${PB_PLANS[s]?.rate || PB_PLANS[s]?.fee || '—'}</div>`);
+    html += '</div>';
+    // Perks rows (aggregate top 3 perks)
+    html += '<div class="pcmpRow"><div class="pcmpCell">Top perks</div>';
+    selected.forEach(s => {
+      const perks = (PB_PLANS[s]?.perks || []).slice(0,3);
+      html += `<div class="pcmpCell"><ul style="margin:0;padding-left:18px">${perks.map(p => `<li>${escapeHtml(p)}</li>`).join('')}</ul></div>`;
+    });
+    html += '</div>';
+    // CTA row
+    html += '<div class="pcmpRow"><div class="pcmpCell"></div>';
+    selected.forEach(s => {
+      html += `<div class="pcmpCell"><button class="pbOpenBtn" data-plan="${escapeHtml(s)}">Open ${escapeHtml(s)}</button></div>`;
+    });
+    html += '</div>';
+
+    html += '</div>';
+    compareTable.innerHTML = html;
+
+    // re-wire open buttons in compare table
+    compareTable.querySelectorAll('.pbOpenBtn').forEach(b => {
+      b.addEventListener('click', () => {
+        planInput.value = b.getAttribute('data-plan');
+        modal.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+  }
+
+  compareBtn.addEventListener('click', () => {
+    const selected = Array.from(select.selectedOptions).map(o => o.value);
+    buildCompareTable(selected);
+  });
+
+  // helper escape
+  function escapeHtml(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+})();
+</script>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

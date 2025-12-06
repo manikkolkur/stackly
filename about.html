@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Bank — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+
+    <div class="header-left">
+  <img id="site-logo" src="assets/images/logo3.webp" alt="Bank Logo">
+</div>
+
+<!-- CENTER: Navigation (desktop) -->
+<nav class="header-nav" aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="home-menu">
+        <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+        <span class="home-arrow"> ▾</span>
+      </button>
+
+      <ul id="home-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="home1.html">Home 2</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="pages-menu">Pages ▾</button>
+      <ul id="pages-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+        <li role="none"><a role="menuitem" href="services.html">Services</a></li>
+        <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+        <li role="none"><a role="menuitem" href="blogs.html">Blogs</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item"><a class="nav-link" href="personal.html">Personal Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="business.html">Business Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+  </ul>
+</nav>
+
+<!-- RIGHT: Login button (desktop) + Hamburger (mobile) -->
+<div class="header-right">
+  <!-- Desktop login button: visible on desktop, hidden on small screens -->
+<a href="login.html">
+  <button id="login-btn" class="btn login-btn" aria-label="Login (desktop)">Login</button>
+</a>
+
+
+  <!-- Hamburger (corner right on mobile) -->
+  <button id="hamburger" class="hamburger" aria-label="Open menu"
+          aria-controls="mobile-menu" aria-expanded="false" aria-pressed="false">
+    <span class="hamburger-inner" aria-hidden="true">
+      <svg width="22" height="14" viewBox="0 0 22 14" xmlns="http://www.w3.org/2000/svg">
+        <rect class="h1" y="0" width="22" height="2" rx="1"></rect>
+        <rect class="h2" y="6" width="22" height="2" rx="1"></rect>
+        <rect class="h3" y="12" width="22" height="2" rx="1"></rect>
+      </svg>
+    </span>
+  </button>
+</div>
+
+</div>
+</header>
+
+<!-- MOBILE MENU (centered overlay) -->
+<div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="mobile-menu-inner" role="document" aria-labelledby="mobile-menu-title">
+    <div class="mobile-menu-header">
+      <div class="mobile-logo-wrap">
+        <img id="mobile-logo" alt="Bank Logo">
+      </div>
+      <button id="mobile-close" class="btn icon-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 3 L17 17 M17 3 L3 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- NAVIGATION (mobile) -->
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <ul class="mobile-nav-list">
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="home">
+            <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+            <span class="home-arrow"> ▾</span>
+          </button>
+
+          <ul class="mobile-submenu" data-mobile-menu="home">
+            <li><a href="home1.html">Home 2</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="pages">Pages ▾</button>
+          <ul class="mobile-submenu" data-mobile-menu="pages">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item"><a class="mobile-link" href="personal.html">Personal Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="business.html">Business Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="contact.html">Contact</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="dashboard.html">Dashboard</a></li>
+
+        <!-- MOBILE: Login button placed inside hamburger menu -->
+       <li class="mobile-item mobile-login-item">
+  <a href="login.html">
+    <button id="mobile-login-btn" class="btn mobile-login-btn">Login</button>
+  </a>
+</li>
+
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+
+
+<main class="aboutBankPage" aria-label="About your bank">
+
+  <!-- ABOUT HERO -->
+  <section class="aboutHero">
+    <div class="aboutHero-inner">
+      <h1 class="aboutHero-title">About Your Bank</h1>
+      <p class="aboutHero-sub">Modern banking built around people — secure, reliable, and designed to help you succeed.</p>
+      <p class="aboutHero-para">
+        We combine smart digital tools with local expertise to offer banking that’s fast, transparent and tailored to individuals and businesses.
+        Founded to make finance simpler, we support customers with human advisors, 24/7 support, and industry-grade security.
+      </p>
+    </div>
+  </section>
+
+  <!-- MISSION / VISION / VALUES -->
+  <section class="aboutMVV" aria-label="Mission vision values">
+    <div class="aboutMVV-inner">
+      <article class="mvvCard">
+        <h3 class="mvvTitle">Our Mission</h3>
+        <p class="mvvText">To empower customers with clear, secure financial tools that make managing money effortless.</p>
+      </article>
+
+      <article class="mvvCard">
+        <h3 class="mvvTitle">Our Vision</h3>
+        <p class="mvvText">To be the most trusted digital-first bank in the region, known for fairness, speed, and innovation.</p>
+      </article>
+
+      <article class="mvvCard">
+        <h3 class="mvvTitle">Our Values</h3>
+        <p class="mvvText">Customer-first, Security & Privacy, Transparency, and Continuous Improvement.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TIMELINE / MILESTONES -->
+  <section class="aboutTimeline" aria-label="Our journey">
+    <div class="aboutTimeline-inner">
+      <h2 class="timelineHeading">Our journey so far</h2>
+
+      <ol class="timelineList" aria-hidden="false">
+        <li class="timelineItem">
+          <div class="timelineMarker">2015</div>
+          <div class="timelineBody">
+            <h4 class="timelineTitle">Founded</h4>
+            <p class="timelineText">We started with a small team and big ambition: rethinking retail banking.</p>
+          </div>
+        </li>
+
+        <li class="timelineItem">
+          <div class="timelineMarker">2018</div>
+          <div class="timelineBody">
+            <h4 class="timelineTitle">First 100k customers</h4>
+            <p class="timelineText">Reached 100,000 active customers and launched our mobile-first platform.</p>
+          </div>
+        </li>
+
+        <li class="timelineItem">
+          <div class="timelineMarker">2021</div>
+          <div class="timelineBody">
+            <h4 class="timelineTitle">Expanded services</h4>
+            <p class="timelineText">Added SME banking, loans, and advanced security monitoring tools.</p>
+          </div>
+        </li>
+
+        <li class="timelineItem">
+          <div class="timelineMarker">2024</div>
+          <div class="timelineBody">
+            <h4 class="timelineTitle">One million customers</h4>
+            <p class="timelineText">Surpassed one million customers and launched global partnerships.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="aboutTeam" aria-label="Leadership and team">
+    <div class="aboutTeam-inner">
+      <h2 class="teamHeading">Leadership & Team</h2>
+      <p class="teamSub">A mix of seasoned bankers, engineers, and security experts.</p>
+
+      <div class="teamGrid">
+        <!-- Team member 1 -->
+        <article class="teamCard">
+          <div class="teamAvatar">
+            <img src="assets/images/team3.webp" alt="Photo of Priya Sharma — CEO">
+          </div>
+          <h4 class="teamName">Priya Sharma</h4>
+          <p class="teamRole">Chief Executive Officer</p>
+          <p class="teamBio">Leads strategy with 15+ years in banking & fintech. Focused on customer-first product design.</p>
+        </article>
+
+        <!-- Team member 2 -->
+        <article class="teamCard">
+          <div class="teamAvatar">
+            <img src="assets/images/team5.webp" alt="Photo of Arjun Mehta — CTO">
+          </div>
+          <h4 class="teamName">Arjun Mehta</h4>
+          <p class="teamRole">Chief Technology Officer</p>
+          <p class="teamBio">Builds secure, scalable platforms — former lead at major cloud provider.</p>
+        </article>
+
+        <!-- Team member 3 -->
+        <article class="teamCard">
+          <div class="teamAvatar">
+            <img src="assets/images/team6.webp" alt="Photo of Sana Khan — Head of Customer Experience">
+          </div>
+          <h4 class="teamName">Sana Khan</h4>
+          <p class="teamRole">Head — Customer Experience</p>
+          <p class="teamBio">Designs seamless onboarding, support flows and high-satisfaction customer journeys.</p>
+        </article>
+
+        <!-- Team member 4 -->
+        <article class="teamCard">
+          <div class="teamAvatar">
+            <img src="assets/images/team8.webp" alt="Photo of Rohit Gupta — Head of Risk">
+          </div>
+          <h4 class="teamName">Rohit Gupta</h4>
+          <p class="teamRole">Head — Risk & Compliance</p>
+          <p class="teamBio">Ensures regulatory alignment and robust fraud prevention across products.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS / TRUST BARS -->
+  <section class="aboutStats" aria-label="Our numbers">
+    <div class="aboutStats-inner">
+      <div class="statCard">
+        <div class="statNumber">1M+</div>
+        <div class="statLabel">Customers</div>
+      </div>
+
+      <div class="statCard">
+        <div class="statNumber">24/7</div>
+        <div class="statLabel">Support</div>
+      </div>
+
+      <div class="statCard">
+        <div class="statNumber">99.99%</div>
+        <div class="statLabel">Uptime</div>
+      </div>
+
+      <div class="statCard">
+        <div class="statNumber">256-bit</div>
+        <div class="statLabel">Encryption</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="aboutCTA" aria-label="Join us">
+    <div class="aboutCTA-inner">
+      <h3 class="aboutCTA-title">Ready to bank better?</h3>
+      <p class="aboutCTA-text">Open an account or talk to an advisor — we’ll guide you through the best options.</p>
+      <div class="aboutCTA-btns">
+        <a href="404page.html" class="aboutCTA-primary">Open Account</a>
+        <a href="404page.html" class="aboutCTA-outline">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+
+<section class="bankServicesSection" aria-label="Our services">
+  <div class="bankServicesContainer">
+
+    <h2 class="bankServicesTitle">What We Offer</h2>
+    <p class="bankServicesSubtitle">
+      Powerful features designed to give you complete control of your finances.
+    </p>
+
+    <div class="bankServicesGrid">
+
+      <!-- SERVICE 1 -->
+      <article class="serviceCard">
+        <div class="serviceIcon">
+          <img src="assets/images/b1.webp" alt="Security Icon">
+        </div>
+        <h3 class="serviceTitle">Secure Online Banking</h3>
+        <p class="serviceText">
+          Advanced encryption, fraud monitoring, and biometric login to keep your account safe 24/7.
+        </p>
+      </article>
+
+      <!-- SERVICE 2 -->
+      <article class="serviceCard">
+        <div class="serviceIcon">
+          <img src="assets/images/b2.webp" alt="Transfer Icon">
+        </div>
+        <h3 class="serviceTitle">Instant Money Transfers</h3>
+        <p class="serviceText">
+          Fast UPI, IMPS, and NEFT transfers with real-time notifications and zero delays.
+        </p>
+      </article>
+
+      <!-- SERVICE 3 -->
+      <article class="serviceCard">
+        <div class="serviceIcon">
+          <img src="assets/images/b3.webp" alt="Loan Icon">
+        </div>
+        <h3 class="serviceTitle">Easy Loans & Credit</h3>
+        <p class="serviceText">
+          Apply online, check eligibility instantly, and enjoy flexible EMIs on your terms.
+        </p>
+      </article>
+
+      <!-- SERVICE 4 -->
+      <article class="serviceCard">
+        <div class="serviceIcon">
+          <img src="assets/images/b4.webp" alt="Support Icon">
+        </div>
+        <h3 class="serviceTitle">24/7 Customer Support</h3>
+        <p class="serviceText">
+          Connect anytime via chat, call, or email with our dedicated support specialists.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- FOOTER -->
+ <footer class="bank-footer">
+  <div class="bank-footer-inner container">
+
+    <!-- Column 1: Brand & short about -->
+    <div class="footer-col footer-brand">
+      <div class="brand-row">
+        <img src="assets/images/logo3.webp" alt="Bank logo" class="footer-logo">
+        <h3 class="brand-title">Your Bank</h3>
+      </div>
+      <p class="brand-desc">
+        Secure banking built for people and businesses — modern tools, 24/7 protection,
+        and expert support to keep your money moving safely.
+      </p>
+      <a class="btn footer-cta" href="404page.html">Open an Account</a>
+    </div>
+
+    <!-- Column 2: Quick links -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Quick Links</h4>
+      <ul class="footer-links-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Products/Services -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Products</h4>
+      <ul class="footer-links-list">
+        <li><a href="404page.html">Savings Account</a></li>
+        <li><a href="404page.html">Personal Loans</a></li>
+        <li><a href="404page.html">Credit Cards</a></li>
+        <li><a href="404page.html">Business Banking</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Contact -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Contact</h4>
+      <address class="contact-info">
+        <div>Plot No 42, Sector 7,<br/> Financial District, City</div>
+        <div class="contact-row">📞 <a href="tel:+919876543210">+91 98765 43210</a></div>
+        <div class="contact-row">✉️ <a href="mailto:help@yourbank.example">help@yourbank.example</a></div>
+        <div class="contact-row">⏰ Mon–Fri: 09:00 — 18:00</div>
+      </address>
+    </div>
+
+    <!-- Column 5: Social / small note -->
+    <div class="footer-col footer-social">
+      <h4 class="footer-heading">Follow Us</h4>
+      <p class="social-desc">Stay updated — security tips, product updates and offers.</p>
+      <div class="social-row">
+        <a class="social-btn" href="404page.html" aria-label="Twitter">X</a>
+        <a class="social-btn" href="404page.html" aria-label="LinkedIn">in</a>
+        <a class="social-btn" href="404page.html" aria-label="Github">GH</a>
+        <a class="social-btn" href="404page.html" aria-label="Instagram">IG</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bank-footer-bottom">
+    <div class="container small">
+      <div>© <span id="footer-year"></span> Your Bank. All rights reserved.</div>
+      <div class="legal-links">
+        <a href="404page.html">Privacy</a>
+        <a href="404page.html">Terms</a>
+        <a href="404page.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
+

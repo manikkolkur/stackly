@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Not Found - 404</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(160deg, #071828, #0b2840);
+      font-family: Inter, system-ui, sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    .err404-wrapper {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .err404-content {
+      animation: fadeInUp 0.8s ease forwards;
+      opacity: 0;
+      max-width: 600px;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .err404-title {
+      font-size: 110px;
+      font-weight: 900;
+      letter-spacing: -4px;
+      margin: 0;
+      color: #2b7bff;
+      text-shadow: 0 0 18px rgba(43,123,255, 0.4);
+      animation: glow 2.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 16px rgba(43,123,255, 0.3); }
+      100% { text-shadow: 0 0 34px rgba(43,123,255, 0.8); }
+    }
+
+    .err404-sub {
+      margin-top: -10px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #d8e7ff;
+    }
+
+    .err404-desc {
+      margin-top: 10px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #c8daff;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .err404-btn {
+      margin-top: 26px;
+      padding: 12px 20px;
+      background: #2b7bff;
+      color: #fff;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      display: inline-block;
+      box-shadow: 0 8px 20px rgba(43,123,255,0.4);
+      transition: 0.25s ease;
+    }
+
+    .err404-btn:hover {
+      background: #1668e8;
+      transform: translateY(-3px);
+    }
+
+    /* Floating Shapes */
+    .err404-shape {
+      position: absolute;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      filter: blur(40px);
+      animation: floatShape 6s infinite ease-in-out alternate;
+    }
+
+    @keyframes floatShape {
+      0% { transform: translateY(0px); opacity: 0.5; }
+      100% { transform: translateY(-40px); opacity: 0.8; }
+    }
+
+    .shape1 { top: 18%; left: 12%; animation-delay: 0s; }
+    .shape2 { bottom: 20%; right: 10%; animation-delay: 1.2s; }
+    .shape3 { top: 60%; left: 50%; animation-delay: 2.2s; }
+
+    @media(max-width: 600px) {
+      .err404-title { font-size: 80px; }
+      .err404-sub { font-size: 18px; }
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="err404-wrapper">
+
+    <!-- Floating shapes -->
+    <div class="err404-shape shape1"></div>
+    <div class="err404-shape shape2"></div>
+    <div class="err404-shape shape3"></div>
+
+    <div class="err404-content">
+      <h1 class="err404-title">404</h1>
+      <p class="err404-sub">Page Not Found</p>
+
+      <p class="err404-desc">
+        The page you’re trying to access doesn't exist or may have been moved.  
+        Please check the URL or return to the home page to continue exploring.
+      </p>
+
+      <a href="index.html" class="err404-btn">← Back to Home</a>
+    </div>
+  </div>
+
+</body>
+</html>

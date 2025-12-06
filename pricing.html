@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Bank — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+
+    <div class="header-left">
+  <img id="site-logo" src="assets/images/logo3.webp" alt="Bank Logo">
+</div>
+
+<!-- CENTER: Navigation (desktop) -->
+<nav class="header-nav" aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="home-menu">
+        <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+        <span class="home-arrow"> ▾</span>
+      </button>
+
+      <ul id="home-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="home1.html">Home 2</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="pages-menu">Pages ▾</button>
+      <ul id="pages-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+        <li role="none"><a role="menuitem" href="services.html">Services</a></li>
+        <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+        <li role="none"><a role="menuitem" href="blogs.html">Blogs</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item"><a class="nav-link" href="personal.html">Personal Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="business.html">Business Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+  </ul>
+</nav>
+
+<!-- RIGHT: Login button (desktop) + Hamburger (mobile) -->
+<div class="header-right">
+  <!-- Desktop login button: visible on desktop, hidden on small screens -->
+<a href="login.html">
+  <button id="login-btn" class="btn login-btn" aria-label="Login (desktop)">Login</button>
+</a>
+
+
+  <!-- Hamburger (corner right on mobile) -->
+  <button id="hamburger" class="hamburger" aria-label="Open menu"
+          aria-controls="mobile-menu" aria-expanded="false" aria-pressed="false">
+    <span class="hamburger-inner" aria-hidden="true">
+      <svg width="22" height="14" viewBox="0 0 22 14" xmlns="http://www.w3.org/2000/svg">
+        <rect class="h1" y="0" width="22" height="2" rx="1"></rect>
+        <rect class="h2" y="6" width="22" height="2" rx="1"></rect>
+        <rect class="h3" y="12" width="22" height="2" rx="1"></rect>
+      </svg>
+    </span>
+  </button>
+</div>
+
+</div>
+</header>
+
+<!-- MOBILE MENU (centered overlay) -->
+<div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="mobile-menu-inner" role="document" aria-labelledby="mobile-menu-title">
+    <div class="mobile-menu-header">
+      <div class="mobile-logo-wrap">
+        <img id="mobile-logo" alt="Bank Logo">
+      </div>
+      <button id="mobile-close" class="btn icon-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 3 L17 17 M17 3 L3 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- NAVIGATION (mobile) -->
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <ul class="mobile-nav-list">
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="home">
+            <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+            <span class="home-arrow"> ▾</span>
+          </button>
+
+          <ul class="mobile-submenu" data-mobile-menu="home">
+            <li><a href="home1.html">Home 2</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="pages">Pages ▾</button>
+          <ul class="mobile-submenu" data-mobile-menu="pages">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item"><a class="mobile-link" href="personal.html">Personal Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="business.html">Business Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="contact.html">Contact</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="dashboard.html">Dashboard</a></li>
+
+        <!-- MOBILE: Login button placed inside hamburger menu -->
+        <li class="mobile-item mobile-login-item">
+  <a href="login.html">
+    <button id="mobile-login-btn" class="btn mobile-login-btn">Login</button>
+  </a>
+</li>
+
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+
+
+
+<section class="pricingBankSection" aria-label="Pricing plans">
+  <div class="pricingBankContainer">
+
+    <h2 class="pricingTitle">Simple, Transparent Pricing</h2>
+    <p class="pricingSubtitle">Choose the plan that fits your needs — no hidden fees.</p>
+
+    <div class="pricingGrid">
+
+      <!-- PLAN 1 -->
+      <article class="pricingCard" data-plan="basic">
+        <h3 class="pricingPlanName">Basic</h3>
+        <p class="pricingPrice">₹0 <span>/ month</span></p>
+        <ul class="pricingList">
+          <li>Free Savings Account</li>
+          <li>Unlimited UPI Payments</li>
+          <li>Standard Debit Card</li>
+          <li>Mobile Banking Access</li>
+        </ul>
+        <a href="404page.html" class="pricingBtn">Choose Basic</a>
+      </article>
+
+      <!-- PLAN 2 (HIGHLIGHTED) -->
+      <article class="pricingCard pricingRecommended" data-plan="pro">
+        <div class="pricingBadge">Recommended</div>
+        <h3 class="pricingPlanName">Plus</h3>
+        <p class="pricingPrice">₹199 <span>/ month</span></p>
+        <ul class="pricingList">
+          <li>Everything in Basic</li>
+          <li>International Debit Card</li>
+          <li>Priority Transfers</li>
+          <li>Zero ATM Fees (All Banks)</li>
+          <li>24/7 Priority Support</li>
+        </ul>
+        <a href="404page.html" class="pricingBtn pricingPrimary">Choose Plus</a>
+      </article>
+
+      <!-- PLAN 3 -->
+      <article class="pricingCard" data-plan="premium">
+        <h3 class="pricingPlanName">Premium</h3>
+        <p class="pricingPrice">₹499 <span>/ month</span></p>
+        <ul class="pricingList">
+          <li>Everything in Plus</li>
+          <li>Premium Metal Card</li>
+          <li>Forex Markup 0%</li>
+          <li>Travel Insurance Included</li>
+          <li>Dedicated Advisor</li>
+        </ul>
+        <a href="404page.html" class="pricingBtn">Choose Premium</a>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="pricingCompareSection" aria-label="Compare pricing plans">
+  <div class="pricingCompareInner">
+
+    <div class="pcHeader">
+      <h2 class="pcTitle">Compare Plans</h2>
+      <p class="pcSubtitle">Pick a plan — toggle to view monthly or yearly billing (save with yearly).</p>
+
+      <div class="pcToggleWrap" role="tablist" aria-label="Billing frequency">
+        <span class="pcToggleLabel">Monthly</span>
+        <button class="pcToggle" id="pcBillingToggle" aria-pressed="false" aria-controls="pcTable" title="Toggle billing">
+          <span class="pcToggleKnob" aria-hidden="true"></span>
+        </button>
+        <span class="pcToggleLabel">Yearly <small class="pcSaveNote">(save 20%)</small></span>
+      </div>
+    </div>
+
+    <!-- COMPARISON GRID (desktop table / mobile stacked) -->
+    <div class="pcTable" id="pcTable" role="table" aria-label="Pricing comparison table">
+
+      <!-- header row (feature labels) -->
+      <div class="pcRow pcHead" role="row">
+        <div class="pcCell pcFeatureHead" role="columnheader">Features</div>
+        <div class="pcCell pcPlanHead" role="columnheader" aria-label="Basic plan header">
+          <div class="pcPlanName">Basic</div>
+          <div class="pcPlanPrice" data-month="0" data-year="0">₹0<span class="pcPeriod">/mo</span></div>
+        </div>
+        <div class="pcCell pcPlanHead pcRecommended" role="columnheader" aria-label="Plus plan header">
+          <div class="pcPlanBadge">Recommended</div>
+          <div class="pcPlanName">Plus</div>
+          <div class="pcPlanPrice" data-month="199" data-year="1910">₹199<span class="pcPeriod">/mo</span></div>
+        </div>
+        <div class="pcCell pcPlanHead" role="columnheader" aria-label="Premium plan header">
+          <div class="pcPlanName">Premium</div>
+          <div class="pcPlanPrice" data-month="499" data-year="4790">₹499<span class="pcPeriod">/mo</span></div>
+        </div>
+      </div>
+<!-- Features rows with descriptions -->
+<!-- Features rows with visible chips (replace your existing rows) -->
+
+<div class="pcRow" role="row" data-feature="debit-card">
+  <div class="pcCell pcFeature" role="cell">
+    <strong>Debit card</strong>
+    <span class="pcFeatureDesc">Physical + Virtual card</span>
+  </div>
+  <div class="pcCell" role="cell"><span class="pcMark pcIncluded">✔ Included</span></div>
+  <div class="pcCell" role="cell"><span class="pcMark pcIncluded">✔ Included</span></div>
+  <div class="pcCell" role="cell"><span class="pcMark pcIncluded">✔ Included</span></div>
+</div>
+
+<div class="pcRow" role="row" data-feature="atm-fee">
+  <div class="pcCell pcFeature" role="cell">
+    <strong>ATM fee waiver</strong>
+    <span class="pcFeatureDesc">5 free withdrawals / month</span>
+  </div>
+  <div class="pcCell" role="cell"><span class="pcMark pcNo">— Not included</span></div>
+  <div class="pcCell" role="cell"><span class="pcMark pcIncluded">✔ Included</span></div>
+  <div class="pcCell" role="cell"><span class="pcMark pcIncluded">✔ Included</span></div>
+</div>
+
+<div class="pcRow" role="row" data-feature="priority">
+  <div class="pcCell pcFeature" role="cell">
+    <strong>Priority support</strong>
+    <span class="pcFeatureDesc">Fast response queue</span>
+  </div>
+  <div class="pcCell" role="cell"><span class="pcMark pcNo">— Not included</span></div>
+  <div class="pcCell" role="cell"><span class="pcMark pcIncluded">✔ Included</span></div>
+  <div class="pcCell" role="cell"><span class="pcMark pcIncluded">✔ Included</span></div>
+</div>
+
+<div class="pcRow" role="row" data-feature="international">
+  <div class="pcCell pcFeature" role="cell">
+    <strong>International debit card</strong>
+    <span class="pcFeatureDesc">Accepted worldwide</span>
+  </div>
+  <div class="pcCell" role="cell"><span class="pcMark pcNo">— Not included</span></div>
+  <div class="pcCell" role="cell"><span class="pcMark pcIncluded">✔ Included</span></div>
+  <div class="pcCell" role="cell"><span class="pcMark pcIncluded">✔ Included</span></div>
+</div>
+
+<div class="pcRow" role="row" data-feature="insurance">
+  <div class="pcCell pcFeature" role="cell">
+    <strong>Travel insurance</strong>
+    <span class="pcFeatureDesc">Coverage up to ₹5,00,000</span>
+  </div>
+  <div class="pcCell" role="cell"><span class="pcMark pcNo">— Not included</span></div>
+  <div class="pcCell" role="cell"><span class="pcMark pcNo">— Not included</span></div>
+  <div class="pcCell" role="cell"><span class="pcMark pcIncluded">✔ Included</span></div>
+</div>
+
+<div class="pcRow" role="row" data-feature="advisor">
+  <div class="pcCell pcFeature" role="cell">
+    <strong>Dedicated advisor</strong>
+    <span class="pcFeatureDesc">Personal relationship manager</span>
+  </div>
+  <div class="pcCell" role="cell"><span class="pcMark pcNo">— Not included</span></div>
+  <div class="pcCell" role="cell"><span class="pcMark pcNo">— Not included</span></div>
+  <div class="pcCell" role="cell"><span class="pcMark pcIncluded">✔ Included</span></div>
+</div>
+
+      <!-- CTA row -->
+      <div class="pcRow pcCTA" role="row">
+        <div class="pcCell pcFeature" role="cell"></div>
+        <div class="pcCell" role="cell"><a class="pcChooseBtn" href="404page.html" data-plan="basic">Choose Basic</a></div>
+        <div class="pcCell" role="cell"><a class="pcChooseBtn pcChoosePrimary" href="#" data-plan="plus">Choose Plus</a></div>
+        <div class="pcCell" role="cell"><a class="pcChooseBtn" href="404page.html" data-plan="premium">Choose Premium</a></div>
+      </div>
+
+    </div> <!-- end table -->
+
+    <!-- Mobile sticky CTA -->
+    <div class="pcMobileSticky" aria-hidden="true">
+      <div class="pcMobileSticky-inner">
+        <div class="pcMobilePrice">From <strong class="pcMobilePriceValue">₹199</strong><span class="pcMobilePeriod">/mo</span></div>
+        <a href="404page.html" class="pcMobileCTA">Choose Plus</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<script>
+(function(){
+  // Helpers
+  const $ = (sel, root = document) => (root || document).querySelector(sel);
+  const $$ = (sel, root = document) => Array.from((root || document).querySelectorAll(sel));
+
+  // Elements
+  const toggle = $('#pcBillingToggle');
+  const planPrices = $$('.pcPlanPrice');
+  const rows = $$('.pcTable > .pcRow:not(.pcHead)'); // feature rows
+  const mobileSticky = document.querySelector('.pcMobileSticky');
+  const mobilePriceValue = document.querySelector('.pcMobilePriceValue');
+  const mobilePeriod = document.querySelector('.pcMobilePeriod');
+
+  // State: false = monthly, true = yearly
+  let yearly = false;
+
+  // Price tween: animate numeric change smoothly
+  function tweenNumber(el, from, to, duration = 420) {
+    const start = performance.now();
+    const fromNum = Number(from);
+    const toNum = Number(to);
+    function frame(now){
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+      const current = fromNum + (toNum - fromNum) * eased;
+      el.firstChild && (el.firstChild.nodeValue = formatCurrency(Math.round(current)));
+      if (t < 1) requestAnimationFrame(frame);
+      else el.firstChild && (el.firstChild.nodeValue = formatCurrency(toNum));
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // format currency (Indian style) — no external libs
+  function formatCurrency(n) {
+    if (Number.isNaN(n)) return n;
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  // Initialize price text nodes to support tweening (wrap number in text node)
+  planPrices.forEach(pp => {
+    // data-month and data-year exist on each pp
+    const raw = pp.getAttribute('data-month') || pp.textContent.trim();
+    // set initial display as text node to be animated
+    pp.innerHTML = '';
+    const num = yearly ? pp.getAttribute('data-year') : raw;
+    const span = document.createTextNode(formatCurrency(Number(num)));
+    pp.appendChild(span);
+    const period = document.createElement('span');
+    period.className = 'pcPeriod';
+    period.textContent = yearly ? '/yr' : '/mo';
+    pp.appendChild(period);
+  });
+
+  // Toggle handler
+  function setBilling(isYearly) {
+    yearly = !!isYearly;
+    // toggle aria-pressed
+    toggle.setAttribute('aria-pressed', String(yearly));
+    // animate each price from current to target
+    planPrices.forEach(pp => {
+      const current = Number(pp.firstChild.nodeValue.replace(/,/g, '')) || 0;
+      const target = Number(pp.getAttribute(yearly ? 'data-year' : 'data-month')) || 0;
+      tweenNumber(pp, current, target, 480);
+      pp.querySelector('.pcPeriod').textContent = yearly ? '/yr' : '/mo';
+    });
+    // update mobile sticky price (choose recommended: Plus)
+    const plusPriceEl = document.querySelector('.pcRecommended .pcPlanPrice');
+    if (plusPriceEl) {
+      const newVal = Number(plusPriceEl.getAttribute(yearly ? 'data-year' : 'data-month')) || 0;
+      mobilePriceValue.textContent = formatCurrency(newVal);
+      mobilePeriod.textContent = yearly ? '/yr' : '/mo';
+    }
+  }
+
+  // Toggle click
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const next = toggle.getAttribute('aria-pressed') === 'true' ? false : true;
+      toggle.setAttribute('aria-pressed', String(next));
+      // animate knob via attribute (CSS handles knob)
+      setBilling(next);
+    });
+  }
+
+  // Reveal feature rows sequentially when visible
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          // add visible class to parent row (cells will animate ticks)
+          const cells = Array.from(e.target.querySelectorAll('.pcCell .pcTick'));
+          // add class to whole pcRow block for animation
+          e.target.classList.add('pcRowVisible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    // We selected feature pcRows by their data attributes; create wrappers for observation
+    const featureRows = $$('.pcRow[data-feature]');
+    featureRows.forEach(r => io.observe(r));
+  } else {
+    // fallback: add visible class immediately
+    $$('.pcRow[data-feature]').forEach(r => r.classList.add('pcRowVisible'));
+  }
+
+  // Mobile sticky: show/hide based on viewport width and scroll (show when table is in view)
+  function updateMobileSticky() {
+    if (!mobileSticky) return;
+    const isSmall = window.matchMedia('(max-width: 980px)').matches;
+    if (!isSmall) { mobileSticky.style.display = 'none'; return; }
+    // show sticky only if the comparison table is visible in viewport
+    const table = document.getElementById('pcTable');
+    const rect = table.getBoundingClientRect();
+    const visible = rect.top < window.innerHeight && rect.bottom > (window.innerHeight * 0.35);
+    mobileSticky.style.display = visible ? 'block' : 'none';
+  }
+  window.addEventListener('resize', updateMobileSticky);
+  window.addEventListener('scroll', throttle(updateMobileSticky, 120));
+  updateMobileSticky();
+
+  // Throttle helper
+  function throttle(fn, wait) {
+    let t = 0;
+    return (...args) => {
+      const now = Date.now();
+      if (now - t >= wait) {
+        t = now;
+        fn.apply(this, args);
+      }
+    };
+  }
+
+  // Init default (monthly)
+  setBilling(false);
+
+})();
+</script>
+
+
+
+
+
+  <!-- FOOTER -->
+ <footer class="bank-footer">
+  <div class="bank-footer-inner container">
+
+    <!-- Column 1: Brand & short about -->
+    <div class="footer-col footer-brand">
+      <div class="brand-row">
+        <img src="assets/images/logo3.webp" alt="Bank logo" class="footer-logo">
+        <h3 class="brand-title">Your Bank</h3>
+      </div>
+      <p class="brand-desc">
+        Secure banking built for people and businesses — modern tools, 24/7 protection,
+        and expert support to keep your money moving safely.
+      </p>
+      <a class="btn footer-cta" href="404page.html">Open an Account</a>
+    </div>
+
+    <!-- Column 2: Quick links -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Quick Links</h4>
+      <ul class="footer-links-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Products/Services -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Products</h4>
+      <ul class="footer-links-list">
+        <li><a href="404page.html">Savings Account</a></li>
+        <li><a href="404page.html">Personal Loans</a></li>
+        <li><a href="404page.html">Credit Cards</a></li>
+        <li><a href="404page.html">Business Banking</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Contact -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Contact</h4>
+      <address class="contact-info">
+        <div>Plot No 42, Sector 7,<br/> Financial District, City</div>
+        <div class="contact-row">📞 <a href="tel:+919876543210">+91 98765 43210</a></div>
+        <div class="contact-row">✉️ <a href="mailto:help@yourbank.example">help@yourbank.example</a></div>
+        <div class="contact-row">⏰ Mon–Fri: 09:00 — 18:00</div>
+      </address>
+    </div>
+
+    <!-- Column 5: Social / small note -->
+    <div class="footer-col footer-social">
+      <h4 class="footer-heading">Follow Us</h4>
+      <p class="social-desc">Stay updated — security tips, product updates and offers.</p>
+      <div class="social-row">
+        <a class="social-btn" href="404page.html" aria-label="Twitter">X</a>
+        <a class="social-btn" href="404page.html" aria-label="LinkedIn">in</a>
+        <a class="social-btn" href="404page.html" aria-label="Github">GH</a>
+        <a class="social-btn" href="404page.html" aria-label="Instagram">IG</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bank-footer-bottom">
+    <div class="container small">
+      <div>© <span id="footer-year"></span> Your Bank. All rights reserved.</div>
+      <div class="legal-links">
+        <a href="404page.html">Privacy</a>
+        <a href="404page.html">Terms</a>
+        <a href="404page.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  const cards = document.querySelectorAll('.pricingCard');
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(c => io.observe(c));
+})();
+</script>
+
+
+  <script src="app.js" defer></script>
+</body>
+</html>
+

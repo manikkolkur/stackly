@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login / Signup — Simple</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --glass: rgba(255,255,255,0.04);
+      --accent-start: #7F7FD5;
+      --accent-end: #86A8E7;
+      --muted:#98A0B3;
+      --success:#4ade80;
+      --danger:#ff6b6b;
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(127,127,213,0.12), transparent 8%),
+                  radial-gradient(900px 400px at 90% 90%, rgba(121,241,164,0.06), transparent 12%),
+                  var(--bg);
+      color:#e6eef8;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+    }
+
+    .wrapper{
+      width:100%;
+      max-width:420px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:center;
+    }
+
+    /* logo above card */
+    .logo-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
+    .logo-wrap img{width:130px;height:130px;object-fit:contain;border-radius:12px}
+    .logo-wrap h1{margin:0;font-size:18px}
+    .logo-wrap p{margin:0;color:var(--muted);font-size:13px}
+
+    .card{
+      width:100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+
+    .tabs{display:flex;gap:8px;background:rgba(255,255,255,0.01);padding:6px;border-radius:999px;margin-bottom:12px}
+    .tabs button{flex:1;padding:10px;border-radius:999px;background:transparent;border:0;color:var(--muted);cursor:pointer;font-weight:700}
+    .tabs button.active{background:linear-gradient(90deg,var(--accent-start),var(--accent-end));color:#071028}
+
+    form{display:flex;flex-direction:column;gap:12px}
+    label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+    input[type="text"],input[type="email"],input[type="password"]{
+      width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:14px;outline:none
+    }
+
+    .row{display:flex;gap:12px}
+    .col{flex:1}
+
+    .actions{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+    .btn{
+      padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700;background:linear-gradient(90deg,var(--accent-start),var(--accent-end));color:#071028;box-shadow:0 8px 24px rgba(32,41,90,0.32)
+    }
+    .outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:9px 12px;border-radius:10px}
+
+    .small{font-size:13px;color:var(--muted)}
+    .link{color:var(--accent-end);text-decoration:none;font-weight:700}
+
+    .or{display:flex;align-items:center;gap:12px;margin:8px 0}
+    .or hr{flex:1;border:0;height:1px;background:rgba(255,255,255,0.03)}
+
+    .error{color:var(--danger);font-size:13px}
+    .meter{height:8px;border-radius:6px;background:rgba(255,255,255,0.04);overflow:hidden}
+    .meter > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent-end),var(--accent-start))}
+
+    footer{margin-top:8px;color:var(--muted);font-size:13px;text-align:center}
+
+    @media (max-width:420px){
+      .logo-wrap img{width:130px;height:130px}
+      .card{padding:18px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="logo-wrap" aria-hidden="false">
+      <img src="assets/images/logo3.webp" alt="Logo" id="logo-preview">
+      <h1>Stackly-like Auth</h1>
+      <p class="small">Secure & simple</p>
+    </div>
+
+    <main class="card" role="region" aria-label="Authentication">
+      <div class="tabs" role="tablist">
+        <button id="tab-login" class="active" role="tab" aria-selected="true">Login</button>
+        <button id="tab-signup" role="tab">Sign up</button>
+      </div>
+
+      <!-- Login -->
+      <form id="form-login" novalidate>
+        <label for="login-email">Email</label>
+        <input id="login-email" name="email" type="email" placeholder="you@company.com" required autocomplete="username">
+        <div id="login-email-err" class="error" aria-live="polite"></div>
+
+        <label for="login-pass">Password</label>
+        <div style="position:relative;">
+          <input id="login-pass" name="password" type="password" placeholder="••••••••" required autocomplete="current-password">
+          <button type="button" class="outline" style="position:absolute;right:6px;top:6px" onclick="togglePassword('login-pass')" aria-label="toggle password">Show</button>
+        </div>
+        <div id="login-pass-err" class="error" aria-live="polite"></div>
+
+        <div class="actions">
+          <label class="small"><input type="checkbox" id="remember"> Remember</label>
+          <a href="404page.html" class="link small">Forgot?</a>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:6px">
+          <button type="submit" class="btn">Sign in</button>
+          <button type="button" class="outline" onclick="fillDemoLogin()">Demo</button>
+        </div>
+
+        <footer>By continuing you agree to our <a href="#" class="link">Terms</a> and <a href="#" class="link">Privacy</a>.</footer>
+      </form>
+
+      <!-- Signup -->
+      <form id="form-signup" style="display:none;" novalidate>
+        <label for="signup-name">Full name</label>
+        <input id="signup-name" name="name" type="text" placeholder="Your full name" required>
+        <div id="signup-name-err" class="error" aria-live="polite"></div>
+
+        <label for="signup-email">Email</label>
+        <input id="signup-email" name="email" type="email" placeholder="you@company.com" required autocomplete="email">
+        <div id="signup-email-err" class="error" aria-live="polite"></div>
+
+        <label for="signup-pass">Password</label>
+        <input id="signup-pass" name="password" type="password" placeholder="At least 8 characters" required autocomplete="new-password">
+        <div id="signup-pass-err" class="error" aria-live="polite"></div>
+
+        <label for="signup-passc">Confirm password</label>
+        <input id="signup-passc" name="passwordConfirm" type="password" placeholder="Repeat password" required>
+        <div id="signup-passc-err" class="error" aria-live="polite"></div>
+
+        <label class="small">Password strength</label>
+        <div class="meter" aria-hidden="true"><i id="strength"></i></div>
+
+        <label class="small"><input type="checkbox" id="agree"> I agree to the <a href="#" class="link">terms</a>.</label>
+        <div id="agree-err" class="error" aria-live="polite"></div>
+
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button type="submit" class="btn">Create account</button>
+          <button type="button" class="outline" onclick="fillDemoSignup()">Demo</button>
+        </div>
+      </form>
+    </main>
+
+  </div>
+
+  <script>
+    // Elements
+    const tabLogin = document.getElementById('tab-login');
+    const tabSignup = document.getElementById('tab-signup');
+    const formLogin = document.getElementById('form-login');
+    const formSignup = document.getElementById('form-signup');
+
+    tabLogin.addEventListener('click', ()=>{ show('login'); });
+    tabSignup.addEventListener('click', ()=>{ show('signup'); });
+
+    function show(which){
+      if(which==='login'){
+        tabLogin.classList.add('active'); tabLogin.setAttribute('aria-selected','true');
+        tabSignup.classList.remove('active'); tabSignup.setAttribute('aria-selected','false');
+        formLogin.style.display='block'; formSignup.style.display='none';
+      } else {
+        tabSignup.classList.add('active'); tabSignup.setAttribute('aria-selected','true');
+        tabLogin.classList.remove('active'); tabLogin.setAttribute('aria-selected','false');
+        formSignup.style.display='block'; formLogin.style.display='none';
+      }
+    }
+
+    function togglePassword(id){
+      const el=document.getElementById(id);
+      if(el.type==='password'){el.type='text'}else{el.type='password'}
+    }
+
+    function isEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+    function passwordStrength(p){
+      let score=0;
+      if(p.length>=8) score+=1;
+      if(/[A-Z]/.test(p)) score+=1;
+      if(/[0-9]/.test(p)) score+=1;
+      if(/[^A-Za-z0-9]/.test(p)) score+=1;
+      return score;
+    }
+    function setStrengthMeter(score){ const el=document.getElementById('strength'); el.style.width = ((score/4)*100) + '%'; }
+
+    // Login submit — validate and redirect to 404page.html on success
+    formLogin.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      let ok=true;
+      const email=document.getElementById('login-email');
+      const pass=document.getElementById('login-pass');
+      document.getElementById('login-email-err').textContent='';
+      document.getElementById('login-pass-err').textContent='';
+
+      if(!email.value.trim()){document.getElementById('login-email-err').textContent='Email is required.'; ok=false}
+      else if(!isEmail(email.value.trim())){document.getElementById('login-email-err').textContent='Enter a valid email.'; ok=false}
+      if(!pass.value){document.getElementById('login-pass-err').textContent='Password is required.'; ok=false}
+      if(!ok) return;
+
+      // Redirect to 404page as requested (replace with real auth flow)
+      window.location.href = '404page.html';
+    });
+
+    // Signup submit — validate and redirect to 404page.html on success
+    formSignup.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      let ok=true;
+      const name=document.getElementById('signup-name');
+      const email=document.getElementById('signup-email');
+      const pass=document.getElementById('signup-pass');
+      const passc=document.getElementById('signup-passc');
+      const agree=document.getElementById('agree');
+      ['signup-name-err','signup-email-err','signup-pass-err','signup-passc-err','agree-err'].forEach(id=>document.getElementById(id).textContent='');
+
+      if(!name.value.trim()){document.getElementById('signup-name-err').textContent='Please enter your full name.'; ok=false}
+      if(!email.value.trim()){document.getElementById('signup-email-err').textContent='Email is required.'; ok=false}
+      else if(!isEmail(email.value.trim())){document.getElementById('signup-email-err').textContent='Enter a valid email address.'; ok=false}
+
+      const score = passwordStrength(pass.value);
+      if(score<2){document.getElementById('signup-pass-err').textContent='Use at least 8 characters, include letters and numbers.'; ok=false}
+      if(pass.value !== passc.value){document.getElementById('signup-passc-err').textContent='Passwords do not match.'; ok=false}
+      if(!agree.checked){document.getElementById('agree-err').textContent='You must agree to the terms.'; ok=false}
+
+      setStrengthMeter(score);
+      if(!ok) return;
+
+      // Redirect to 404page as requested (replace with real signup flow)
+      window.location.href = '404page.html';
+    });
+
+    document.getElementById('signup-pass').addEventListener('input', (e)=>{ setStrengthMeter(passwordStrength(e.target.value)); });
+
+    // Demo helpers
+    function fillDemoLogin(){ document.getElementById('login-email').value='demo@stackly.com'; document.getElementById('login-pass').value='DemoPass123!'; }
+    function fillDemoSignup(){ document.getElementById('signup-name').value='Demo User'; document.getElementById('signup-email').value='new@stackly.com'; document.getElementById('signup-pass').value='DemoPass123!'; document.getElementById('signup-passc').value='DemoPass123!'; document.getElementById('agree').checked=true; setStrengthMeter(passwordStrength('DemoPass123!')); }
+
+    // keyboard accessibility for tabs
+    [tabLogin,tabSignup].forEach(b=>b.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){e.preventDefault(); b.click()} }));
+  </script>
+</body>
+</html>

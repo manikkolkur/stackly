@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Bank — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+
+    <div class="header-left">
+  <img id="site-logo" src="assets/images/logo3.webp" alt="Bank Logo">
+</div>
+
+<!-- CENTER: Navigation (desktop) -->
+<nav class="header-nav" aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="home-menu">
+        <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+        <span class="home-arrow"> ▾</span>
+      </button>
+
+      <ul id="home-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="home1.html">Home 2</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="pages-menu">Pages ▾</button>
+      <ul id="pages-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+        <li role="none"><a role="menuitem" href="services.html">Services</a></li>
+        <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+        <li role="none"><a role="menuitem" href="blogs.html">Blogs</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item"><a class="nav-link" href="personal.html">Personal Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="business.html">Business Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+  </ul>
+</nav>
+
+<!-- RIGHT: Login button (desktop) + Hamburger (mobile) -->
+<div class="header-right">
+  <!-- Desktop login button: visible on desktop, hidden on small screens -->
+<a href="login.html">
+<a href="login.html">
+  <button id="login-btn" class="btn login-btn" aria-label="Login (desktop)">Login</button>
+</a>
+
+</a>
+
+
+  <!-- Hamburger (corner right on mobile) -->
+  <button id="hamburger" class="hamburger" aria-label="Open menu"
+          aria-controls="mobile-menu" aria-expanded="false" aria-pressed="false">
+    <span class="hamburger-inner" aria-hidden="true">
+      <svg width="22" height="14" viewBox="0 0 22 14" xmlns="http://www.w3.org/2000/svg">
+        <rect class="h1" y="0" width="22" height="2" rx="1"></rect>
+        <rect class="h2" y="6" width="22" height="2" rx="1"></rect>
+        <rect class="h3" y="12" width="22" height="2" rx="1"></rect>
+      </svg>
+    </span>
+  </button>
+</div>
+
+</div>
+</header>
+
+<!-- MOBILE MENU (centered overlay) -->
+<div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="mobile-menu-inner" role="document" aria-labelledby="mobile-menu-title">
+    <div class="mobile-menu-header">
+      <div class="mobile-logo-wrap">
+        <img id="mobile-logo" alt="Bank Logo">
+      </div>
+      <button id="mobile-close" class="btn icon-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 3 L17 17 M17 3 L3 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- NAVIGATION (mobile) -->
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <ul class="mobile-nav-list">
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="home">
+            <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+            <span class="home-arrow"> ▾</span>
+          </button>
+
+          <ul class="mobile-submenu" data-mobile-menu="home">
+            <li><a href="home1.html">Home 2</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="pages">Pages ▾</button>
+          <ul class="mobile-submenu" data-mobile-menu="pages">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item"><a class="mobile-link" href="personal.html">Personal Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="business.html">Business Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="contact.html">Contact</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="dashboard.html">Dashboard</a></li>
+
+     <li class="mobile-item mobile-login-item">
+  <a href="login.html">
+    <button id="mobile-login-btn" class="btn mobile-login-btn">Login</button>
+  </a>
+</li>
+
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+
+
+  <section class="heroBankNew">
+  <div class="heroBankNew-container">
+
+    <div class="heroBankNew-left">
+      <h1 class="heroBankNew-title">Secure, Smart & Modern Banking</h1>
+
+      <p class="heroBankNew-text">
+        Manage all your finances in one place — fast transfers, safe payments, 
+        instant alerts, and powerful tools for every customer.
+      </p>
+
+      <div class="heroBankNew-btns">
+        <a href="404page.html" class="heroBankNew-btnPrimary">Get Started</a>
+        <a href="404page.html" class="heroBankNew-btnOutline">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="heroBankNew-right">
+      <div class="heroBankNew-card">
+        <img src="assets/images/bnak.webp" alt="Bank Security">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<section class="quickActionsSection" aria-label="Quick actions">
+  <div class="quickActionsContainer">
+
+    <h2 class="quickActionsTitle">Quick actions</h2>
+    <p class="quickActionsSubtitle">Most common tasks — start them in one click</p>
+
+    <div class="quickActionsGrid">
+      <!-- Card 1 -->
+      <article class="qaCard">
+        <div class="qaIcon" aria-hidden="true">
+          <!-- piggy bank SVG -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 10h1a1 1 0 110 2h-1a8 8 0 11-15.5-2H4a1 1 0 110-2h1.2A8 8 0 0120 10z" fill="currentColor"/>
+  <circle cx="9" cy="11" r="1" fill="#fff"/>
+  <path d="M6 15h3l1 2h6a1 1 0 110 2H9.5a1 1 0 01-.9-.56L7 15H6a1 1 0 110-2h.2" fill="currentColor"/>
+</svg>
+
+        </div>
+        <h3 class="qaCardTitle">Open a Savings Account</h3>
+        <p class="qaCardText">Easy savings with competitive interest rates and zero hassle onboarding.</p>
+        <a class="qaCardBtn" href="404page.html">Open Account</a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="qaCard">
+        <div class="qaIcon" aria-hidden="true">
+          <!-- loan SVG -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M15 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9l-5-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M15 2v7h7" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M9 13h6M9 17h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="17" cy="17" r="4.5" fill="currentColor" opacity=".1"/>
+  <path d="M15.5 17l1.2 1.2 2.3-2.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg>
+
+        </div>
+        <h3 class="qaCardTitle">Apply Personal Loan</h3>
+        <p class="qaCardText">Pre-qualify in seconds — competitive EMIs and instant approvals.</p>
+        <a class="qaCardBtn" href="404page.html">Check Eligibility</a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="qaCard">
+        <div class="qaIcon" aria-hidden="true">
+          <!-- card SVG -->
+         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="2"/>
+  <rect x="2" y="9" width="20" height="3" fill="currentColor"/>
+  <rect x="5" y="14" width="4" height="2" rx="1" fill="currentColor"/>
+  <rect x="11" y="14" width="7" height="2" rx="1" fill="currentColor"/>
+</svg>
+
+        </div>
+        <h3 class="qaCardTitle">Get a Credit Card</h3>
+        <p class="qaCardText">Rewards, cashback, and travel benefits — choose the card that fits you.</p>
+        <a class="qaCardBtn" href="404page.html">Compare Cards</a>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="qaCard">
+        <div class="qaIcon" aria-hidden="true">
+          <!-- map pin SVG -->
+         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 2a7 7 0 017 7c0 4.5-7 13-7 13S5 13.5 5 9a7 7 0 017-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+  <circle cx="12" cy="9" r="3" fill="currentColor"/>
+  <path d="M3 22l5-3 5 3 5-3 3 2" stroke="currentColor" stroke-width="2" fill="none"/>
+</svg>
+
+        </div>
+        <h3 class="qaCardTitle">Find Branch / ATM</h3>
+        <p class="qaCardText">Locate nearby branches and ATMs with opening hours and services.</p>
+        <a class="qaCardBtn" href="404page.html">Locate Now</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+ <footer class="bank-footer">
+  <div class="bank-footer-inner container">
+
+    <!-- Column 1: Brand & short about -->
+    <div class="footer-col footer-brand">
+      <div class="brand-row">
+        <img src="assets/images/logo3.webp" alt="Bank logo" class="footer-logo">
+        <h3 class="brand-title">Your Bank</h3>
+      </div>
+      <p class="brand-desc">
+        Secure banking built for people and businesses — modern tools, 24/7 protection,
+        and expert support to keep your money moving safely.
+      </p>
+      <a class="btn footer-cta" href="404page.html">Open an Account</a>
+    </div>
+
+    <!-- Column 2: Quick links -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Quick Links</h4>
+      <ul class="footer-links-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Products/Services -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Products</h4>
+      <ul class="footer-links-list">
+        <li><a href="404page.html">Savings Account</a></li>
+        <li><a href="404page.html">Personal Loans</a></li>
+        <li><a href="404page.html">Credit Cards</a></li>
+        <li><a href="404page.html">Business Banking</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Contact -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Contact</h4>
+      <address class="contact-info">
+        <div>Plot No 42, Sector 7,<br/> Financial District, City</div>
+        <div class="contact-row">📞 <a href="tel:+919876543210">+91 98765 43210</a></div>
+        <div class="contact-row">✉️ <a href="mailto:help@yourbank.example">help@yourbank.example</a></div>
+        <div class="contact-row">⏰ Mon–Fri: 09:00 — 18:00</div>
+      </address>
+    </div>
+
+    <!-- Column 5: Social / small note -->
+    <div class="footer-col footer-social">
+      <h4 class="footer-heading">Follow Us</h4>
+      <p class="social-desc">Stay updated — security tips, product updates and offers.</p>
+      <div class="social-row">
+        <a class="social-btn" href="404page.html" aria-label="Twitter">X</a>
+        <a class="social-btn" href="404page.html" aria-label="LinkedIn">in</a>
+        <a class="social-btn" href="404page.html" aria-label="Github">GH</a>
+        <a class="social-btn" href="404page.html" aria-label="Instagram">IG</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bank-footer-bottom">
+    <div class="container small">
+      <div>© <span id="footer-year"></span> Your Bank. All rights reserved.</div>
+      <div class="legal-links">
+        <a href="404page.html">Privacy</a>
+        <a href="404page.html">Terms</a>
+        <a href="404page.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="app.js" defer></script>
+</body>
+</html>

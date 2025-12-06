@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Bank — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+
+    <div class="header-left">
+  <img id="site-logo" src="assets/images/logo3.webp" alt="Bank Logo">
+</div>
+
+<!-- CENTER: Navigation (desktop) -->
+<nav class="header-nav" aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="home-menu">
+        <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+        <span class="home-arrow"> ▾</span>
+      </button>
+
+      <ul id="home-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="home1.html">Home 1</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item dropdown" data-dropdown>
+      <button class="nav-link" aria-expanded="false" aria-controls="pages-menu">Pages ▾</button>
+      <ul id="pages-menu" class="dropdown-menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+        <li role="none"><a role="menuitem" href="services.html">Services</a></li>
+        <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+        <li role="none"><a role="menuitem" href="blogs.html">Blogs</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item"><a class="nav-link" href="personal.html">Personal Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="business.html">Business Banking</a></li>
+    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+  </ul>
+</nav>
+
+<!-- RIGHT: Login button (desktop) + Hamburger (mobile) -->
+<div class="header-right">
+  <!-- Desktop login button: visible on desktop, hidden on small screens -->
+<a href="login.html">
+  <button id="login-btn" class="btn login-btn" aria-label="Login (desktop)">Login</button>
+</a>
+
+
+  <!-- Hamburger (corner right on mobile) -->
+  <button id="hamburger" class="hamburger" aria-label="Open menu"
+          aria-controls="mobile-menu" aria-expanded="false" aria-pressed="false">
+    <span class="hamburger-inner" aria-hidden="true">
+      <svg width="22" height="14" viewBox="0 0 22 14" xmlns="http://www.w3.org/2000/svg">
+        <rect class="h1" y="0" width="22" height="2" rx="1"></rect>
+        <rect class="h2" y="6" width="22" height="2" rx="1"></rect>
+        <rect class="h3" y="12" width="22" height="2" rx="1"></rect>
+      </svg>
+    </span>
+  </button>
+</div>
+
+</div>
+</header>
+
+<!-- MOBILE MENU (centered overlay) -->
+<div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="mobile-menu-inner" role="document" aria-labelledby="mobile-menu-title">
+    <div class="mobile-menu-header">
+      <div class="mobile-logo-wrap">
+        <img id="mobile-logo" alt="Bank Logo">
+      </div>
+      <button id="mobile-close" class="btn icon-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 3 L17 17 M17 3 L3 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- NAVIGATION (mobile) -->
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <ul class="mobile-nav-list">
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="home">
+            <span class="home-link-text" onclick="event.stopPropagation(); window.location.href='index.html'">Home</span>
+            <span class="home-arrow"> ▾</span>
+          </button>
+
+          <ul class="mobile-submenu" data-mobile-menu="home">
+            <li><a href="home1.html">Home 1</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item">
+          <button class="mobile-link mobile-dropdown-toggle" data-mobile-dropdown="pages">Pages ▾</button>
+          <ul class="mobile-submenu" data-mobile-menu="pages">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </li>
+
+        <li class="mobile-item"><a class="mobile-link" href="personal.html">Personal Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="business.html">Business Banking</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="contact.html">Contact</a></li>
+        <li class="mobile-item"><a class="mobile-link" href="dashboard.html">Dashboard</a></li>
+
+        <!-- MOBILE: Login button placed inside hamburger menu -->
+       <li class="mobile-item mobile-login-item">
+  <a href="login.html">
+    <button id="mobile-login-btn" class="btn mobile-login-btn">Login</button>
+  </a>
+</li>
+
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+
+
+<section class="blogHeroSection">
+  <div class="blogHeroContainer">
+    <h1 class="blogHeroTitle">Banking Insights & Financial Guides</h1>
+    <p class="blogHeroSubtitle">Stay updated with the latest tips, security alerts, banking trends and more.</p>
+
+    <div class="blogSearchBar">
+      <input type="text" placeholder="Search articles…" id="blogSearchInput">
+      <button id="blogSearchBtn">Search</button>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="blogCategoriesSection">
+  <div class="blogCatContainer">
+
+    <button class="blogCatBtn active" data-cat="all">All</button>
+    <button class="blogCatBtn" data-cat="security">Security</button>
+    <button class="blogCatBtn" data-cat="loans">Loans</button>
+    <button class="blogCatBtn" data-cat="savings">Savings</button>
+    <button class="blogCatBtn" data-cat="digital">Digital Banking</button>
+
+  </div>
+</section>
+
+
+
+<section class="blogGridSection">
+  <div class="blogGridContainer">
+
+    <!-- Blog Card 1 -->
+    <article class="blogCard" data-cat="security">
+      <img src="assets/images/blog1.webp" alt="Cyber Security">
+      <div class="blogCardContent">
+        <h3>How to Protect Your Bank Account from Online Threats</h3>
+        <p>Learn expert-approved tips to enhance your digital banking security.</p>
+        <a href="404page.html" class="blogReadMore">Read More →</a>
+      </div>
+    </article>
+
+    <!-- Blog Card 2 -->
+    <article class="blogCard" data-cat="loans">
+      <img src="assets/images/blog2.webp" alt="Loan Guide">
+      <div class="blogCardContent">
+        <h3>Personal Loan vs Credit Card: Which is Better?</h3>
+        <p>A complete guide for first-time borrowers.</p>
+        <a href="404page.html" class="blogReadMore">Read More →</a>
+      </div>
+    </article>
+
+    <!-- Blog Card 3 -->
+    <article class="blogCard" data-cat="savings">
+      <img src="assets/images/blog3.webp" alt="Savings Account">
+      <div class="blogCardContent">
+        <h3>Top 5 Ways to Save Money in 2025</h3>
+        <p>Smart savings strategies for everyday banking.</p>
+        <a href="404page.html" class="blogReadMore">Read More →</a>
+      </div>
+    </article>
+
+    <!-- Blog Card 4 -->
+    <article class="blogCard" data-cat="digital">
+      <img src="assets/images/blog4.webp" alt="Digital Banking">
+      <div class="blogCardContent">
+        <h3>Why Digital Banking is the Future</h3>
+        <p>Discover how banking is transforming with technology.</p>
+        <a href="404page.html" class="blogReadMore">Read More →</a>
+      </div>
+    </article>
+
+
+    <article class="blogCard" data-cat="savings">
+  <img src="assets/images/blog5.webp" alt="Credit Score Tips">
+  <div class="blogCardContent">
+    <h3>How to Improve Your Credit Score in 2025</h3>
+    <p>Simple habits that can boost your CIBIL score quickly and safely.</p>
+    <a href="404page.html" class="blogReadMore">Read More →</a>
+  </div>
+</article>
+
+
+
+
+<article class="blogCard" data-cat="security">
+  <img src="assets/images/blog6.webp" alt="Fraud Awareness">
+  <div class="blogCardContent">
+    <h3>7 Common Banking Frauds & How to Avoid Them</h3>
+    <p>Protect your account from phishing, SIM swaps, and payment scams.</p>
+    <a href="404page.html" class="blogReadMore">Read More →</a>
+  </div>
+</article>
+
+
+
+<article class="blogCard" data-cat="loans">
+  <img src="assets/images/blog7.webp" alt="Home Loan Guide">
+  <div class="blogCardContent">
+    <h3>Home Loan Guide: Eligibility, Documents & Rates</h3>
+    <p>Your step-by-step guide to getting approved for a home loan.</p>
+    <a href="404page.html" class="blogReadMore">Read More →</a>
+  </div>
+</article>
+
+
+<article class="blogCard" data-cat="savings">
+  <img src="assets/images/blog8.webp" alt="FD Tips">
+  <div class="blogCardContent">
+    <h3>Are Fixed Deposits Still Worth It in 2025?</h3>
+    <p>Understand interest trends and best FD options today.</p>
+    <a href="404page.html" class="blogReadMore">Read More →</a>
+  </div>
+</article>
+
+
+
+<article class="blogCard" data-cat="digital">
+  <img src="assets/images/blog9.webp" alt="Digital Banking Benefits">
+  <div class="blogCardContent">
+    <h3>Benefits of Switching to a Digital-First Bank</h3>
+    <p>Explore faster payments, low fees, and modern tools.</p>
+    <a href="404page.html" class="blogReadMore">Read More →</a>
+  </div>
+</article>
+
+
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+ <footer class="bank-footer">
+  <div class="bank-footer-inner container">
+
+    <!-- Column 1: Brand & short about -->
+    <div class="footer-col footer-brand">
+      <div class="brand-row">
+        <img src="assets/images/logo3.webp" alt="Bank logo" class="footer-logo">
+        <h3 class="brand-title">Your Bank</h3>
+      </div>
+      <p class="brand-desc">
+        Secure banking built for people and businesses — modern tools, 24/7 protection,
+        and expert support to keep your money moving safely.
+      </p>
+      <a class="btn footer-cta" href="404page.html">Open an Account</a>
+    </div>
+
+    <!-- Column 2: Quick links -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Quick Links</h4>
+      <ul class="footer-links-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Products/Services -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Products</h4>
+      <ul class="footer-links-list">
+        <li><a href="404page.html">Savings Account</a></li>
+        <li><a href="404page.html">Personal Loans</a></li>
+        <li><a href="404page.html">Credit Cards</a></li>
+        <li><a href="404page.html">Business Banking</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Contact -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Contact</h4>
+      <address class="contact-info">
+        <div>Plot No 42, Sector 7,<br/> Financial District, City</div>
+        <div class="contact-row">📞 <a href="tel:+919876543210">+91 98765 43210</a></div>
+        <div class="contact-row">✉️ <a href="mailto:help@yourbank.example">help@yourbank.example</a></div>
+        <div class="contact-row">⏰ Mon–Fri: 09:00 — 18:00</div>
+      </address>
+    </div>
+
+    <!-- Column 5: Social / small note -->
+    <div class="footer-col footer-social">
+      <h4 class="footer-heading">Follow Us</h4>
+      <p class="social-desc">Stay updated — security tips, product updates and offers.</p>
+      <div class="social-row">
+        <a class="social-btn" href="404page.html" aria-label="Twitter">X</a>
+        <a class="social-btn" href="404page.html" aria-label="LinkedIn">in</a>
+        <a class="social-btn" href="404page.html" aria-label="Github">GH</a>
+        <a class="social-btn" href="404page.html" aria-label="Instagram">IG</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bank-footer-bottom">
+    <div class="container small">
+      <div>© <span id="footer-year"></span> Your Bank. All rights reserved.</div>
+      <div class="legal-links">
+        <a href="404page.html">Privacy</a>
+        <a href="404page.html">Terms</a>
+        <a href="404page.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  const cards = document.querySelectorAll('.blogCard');
+  const categoryBtns = document.querySelectorAll('.blogCatBtn');
+  const searchInput = document.getElementById('blogSearchInput');
+  const searchBtn = document.getElementById('blogSearchBtn');
+
+  // Reveal animation
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    cards.forEach(card => io.observe(card));
+  }
+
+  // Category filter
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      categoryBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.getAttribute('data-cat');
+
+      cards.forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat)
+          ? 'block'
+          : 'none';
+      });
+    });
+  });
+
+  // Search
+  function searchArticles(){
+    const text = searchInput.value.toLowerCase();
+    cards.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      const para = card.querySelector('p').textContent.toLowerCase();
+      card.style.display = (title.includes(text) || para.includes(text))
+        ? 'block'
+        : 'none';
+    });
+  }
+
+  searchBtn.addEventListener('click', searchArticles);
+})();
+</script>
+
+
+  <script src="app.js" defer></script>
+</body>
+</html>
