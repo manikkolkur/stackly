@@ -2417,8 +2417,6 @@ body{
   font-size: 14px;
   font-family: 'Inter', sans-serif;
 }
-
-/* SIGNUP BUTTON */
 .signup-btn {
   position: relative;
   overflow: hidden;
@@ -2428,39 +2426,34 @@ body{
   align-items: center;
   text-decoration: none;
   border-left: 1px solid #e5e7eb;
-  color: black;
+  height: 48px;
 }
 
-/* TEXT — ALWAYS BLACK */
+/* TEXT */
 .signup-btn span {
   position: relative;
-
-         /* stays BLACK */
+  z-index: 2;              /* 🔥 ABOVE THE CARPET */
+  color: #000000;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-/* CARPET SLIDE */
+/* CARPET */
 .signup-btn::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: #122529;    /* carpet color */
-  transition: left 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1;
-  color: white;
+  inset: 0;
+  background: #122529;
+  transform: translateX(-100%);
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;              /* 🔥 BELOW TEXT */
 }
 
-
-
-/* HOVER EFFECT */
+/* HOVER */
 .signup-btn:hover::before {
-  left: 0;
+  transform: translateX(0);
 }
 
-/* TEXT COLOR CHANGE ON HOVER */
 .signup-btn:hover span {
   color: #ffffff;
 }
